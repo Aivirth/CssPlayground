@@ -9,7 +9,7 @@ export default class BoxShadow extends Component {
           title="Opacity"
           min="0"
           max="1"
-          value="0.5"
+          defaultValue="0.5"
           step="0.1"
           id="idrangetest"
         />
@@ -17,7 +17,7 @@ export default class BoxShadow extends Component {
           title="Horizontal Heigth"
           min="1"
           max="200"
-          value="130"
+          defaultValue="130"
           step="1"
           id="idrangetest2"
         />
