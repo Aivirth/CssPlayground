@@ -2,7 +2,7 @@ import React from "react";
 
 export default () => {
   return (
-    <nav>
+    <nav style={{ flex: "0 0 100%" }}>
       <div className="nav-wrapper container">
         <a href="#!" className="brand-logo ">
           Logo

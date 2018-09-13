@@ -8,7 +8,8 @@ export default () => {
       style={{
         overflow: "auto",
         transform: "translateX(0px)",
-        position: "static"
+        position: "static",
+        display: "inline-block"
       }}
     >
       <li className="no-padding">
