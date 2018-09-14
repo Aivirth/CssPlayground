@@ -12,14 +12,14 @@ export default () => {
       <h3>Option title</h3>
 
       <div className="row">
-        <div className="col s8">
+        <div className="col s6">
           <Switch>
             <Route exact path="/box-shadow" component={BoxShadow} />
             <Route exact path="/border-radius" component={BorderRadius} />
             <Route component={NotFound} />
           </Switch>
         </div>
-        <div className="col s4">
+        <div className="col s6">
           <Actor />
         </div>
       </div>

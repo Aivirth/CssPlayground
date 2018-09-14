@@ -11,7 +11,8 @@ export default class Actor extends Component {
       backgroundColor: "orangered",
       border: "2px solid blue",
       width: this.state.width + "px",
-      height: this.state.height + "px"
+      height: this.state.height + "px",
+      margin: "auto"
     };
 
     return <div id="Actor" style={styles} />;
