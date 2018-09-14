@@ -9,6 +9,24 @@ const initialState = {
       borderWidth: 2,
       borderStyle: "solid",
       borderColor: "blue"
+    },
+    borderRadius: {
+      borderTopLeftRadius: {
+        radiusX: 25,
+        radiusY: 50
+      },
+      borderTopRightRadius: {
+        radiusX: 25,
+        radiusY: 50
+      },
+      borderBottomLeftRadius: {
+        radiusX: 25,
+        radiusY: 50
+      },
+      borderBottomRightRadius: {
+        radiusX: 25,
+        radiusY: 50
+      }
     }
   }
 };
