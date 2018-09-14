@@ -7,9 +7,10 @@ export default () => {
         <a href="/" className="brand-logo ">
           CSS PlayGround
         </a>
+
         <ul className="right hide-on-med-and-down">
           <li>
-            <a href="/">About</a>
+            <a href="/about">About</a>
           </li>
           <li className="active">
             <a href="/">Github</a>

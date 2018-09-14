@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default () => {
   return (
@@ -25,13 +26,13 @@ export default () => {
             <div className="collapsible-body" style={{ display: "block" }}>
               <ul>
                 <li className="active">
-                  <a href="/">Border Radius</a>
+                  <Link to="/border-radius">Border Radius</Link>
                 </li>
                 <li>
-                  <a href="/">Box Shadow</a>
+                  <Link to="/box-shadow">Box Shadow</Link>
                 </li>
                 <li>
-                  <a href="/">Borders</a>
+                  <Link to="/borders">Borders</Link>
                 </li>
               </ul>
             </div>
