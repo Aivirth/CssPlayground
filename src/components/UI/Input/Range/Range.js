@@ -45,7 +45,6 @@ export default class Range extends React.Component {
           value={value}
           onChange={this.onRangeChange}
         />
-        <hr />
       </React.Fragment>
     );
   }

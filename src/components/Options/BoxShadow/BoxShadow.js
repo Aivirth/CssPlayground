@@ -2,9 +2,36 @@ import React, { Component } from "react";
 import Range from "../../UI/Input/Range/Range";
 
 export default class BoxShadow extends Component {
+  state = {
+    verticalOffset: 0,
+    horizontalOffset: 0,
+    blur: 0,
+    spread: 0,
+    color: 0,
+    opacity: 0,
+    inset: false
+  };
+
   render() {
+    const {
+      verticalOffset,
+      horizontalOffset,
+      blur,
+      spread,
+      color,
+      opacity,
+      inset
+    } = this.state;
     return (
       <div>
+        <h3>
+          Box Shadow : `{verticalOffset}
+          px {horizontalOffset}
+          px {blur}
+          px {spread}
+          px {color}`
+        </h3>
+
         <Range
           title="Opacity"
           min="0"
