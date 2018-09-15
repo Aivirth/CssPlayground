@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Range from "../../UI/Input/Range/Range";
 import Switch from "../../UI/Input/Switch/Switch";
+import ColorPicker from "../../UI/Input/ColorPicker/ColorPicker";
 
 import { connect } from "react-redux";
 import { getStyles, updtBoxShadow } from "../../../Redux/actions/actorActions";
@@ -26,6 +27,16 @@ class BoxShadow extends Component {
     const updatedProperty = {
       ...this.props.boxShadow
     };
+    updatedProperty[e.target.dataset.identifier] = e.target.value;
+    this.props.updtBoxShadow(updatedProperty);
+  };
+
+  onColorChange = e => {
+    const updatedProperty = {
+      ...this.props.boxShadow
+    };
+
+    console.log(e.target.value);
     updatedProperty[e.target.dataset.identifier] = e.target.value;
     this.props.updtBoxShadow(updatedProperty);
   };
@@ -79,11 +90,19 @@ class BoxShadow extends Component {
           changed={this.onRangeChange}
           identifier="spread"
         />
-        <hr />
         <Switch
           identifier="inset"
           value={inset}
           changed={this.onSwitchChange}
+        />
+        <hr />
+        <div style={{ marginTop: "15px", marginBottom: "15px" }} />
+
+        <ColorPicker
+          identifier="color"
+          changed={this.onColorChange}
+          value={color}
+          id="color"
         />
       </div>
     );
