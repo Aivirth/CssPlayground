@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import Range from "../../UI/Input/Range/Range";
 
-export default class BoxShadow extends Component {
-  state = {
-    verticalOffset: 130,
-    horizontalOffset: 130,
-    blur: 0,
-    spread: 0,
-    color: 0,
-    opacity: 0.5,
-    inset: false
-  };
+import { connect } from "react-redux";
+import { getStyles } from "../../../Redux/actions/actorActions";
+
+class BoxShadow extends Component {
+  state = {};
+
+  componentDidMount() {
+    this.props.getStyles();
+    console.log("BoxShadow", this.props);
+  }
 
   onRangeChange = e => {
     console.log(e.target.value);
@@ -27,7 +27,7 @@ export default class BoxShadow extends Component {
       color,
       opacity,
       inset
-    } = this.state;
+    } = this.props.boxShadow;
     return (
       <div>
         <Range
@@ -52,3 +52,12 @@ export default class BoxShadow extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  boxShadow: state.actor.boxShadow
+});
+
+export default connect(
+  mapStateToProps,
+  { getStyles }
+)(BoxShadow);
