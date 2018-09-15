@@ -1,8 +1,8 @@
 import { GET_STYLES, UPDT_BOXSHADOW } from "../actions/types";
 const initialState = {
   baseStyle: {
-    width: 250,
-    height: 250,
+    width: 200,
+    height: 200,
     margin: "auto",
     backgroundColor: "orangered"
   },
@@ -32,11 +32,11 @@ const initialState = {
   },
 
   boxShadow: {
-    verticalOffset: 100,
-    horizontalOffset: 100,
-    blur: 0,
-    spread: 0,
-    color: 0,
+    verticalOffset: 20,
+    horizontalOffset: 10,
+    blur: 3,
+    spread: 5,
+    color: "#000",
     opacity: 0.3,
     inset: false
   }

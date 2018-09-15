@@ -13,8 +13,11 @@ class Actor extends Component {
     const borderStyle = this.props.borderStyle;
     const baseStyle = this.props.baseStyle;
     const borderRadiusRaw = this.props.borderRadius;
+    const boxShadow = this.props.boxShadow;
 
-    let borderRadius = {};
+    console.log(boxShadow);
+
+    const borderRadius = {};
 
     for (const key in borderRadiusRaw) {
       let combinedRadii = `${borderRadiusRaw[key].radiusX}px ${
@@ -36,7 +39,12 @@ class Actor extends Component {
       borderTopLeftRadius: borderRadius.borderTopLeftRadius,
       borderTopRightRadius: borderRadius.borderTopRightRadius,
       borderBottomLeftRadius: borderRadius.borderBottomLeftRadius,
-      borderBottomRightRadius: borderRadius.borderBottomRightRadius
+      borderBottomRightRadius: borderRadius.borderBottomRightRadius,
+
+      boxShadow: `${boxShadow.horizontalOffset}px ${
+        boxShadow.verticalOffset
+      }px ${boxShadow.blur}px ${boxShadow.spread}px ${boxShadow.color}`
+      //boxShadow: "10px 10px 5px 0px rgba(0,0,0,0.75)"
     };
 
     return <div id="Actor" style={styles} />;
