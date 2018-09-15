@@ -10,25 +10,29 @@ class Actor extends Component {
   }
 
   render() {
-    const actorStylesFromProps = this.props.styles;
+    const borderStyle = this.props.borderStyle;
+    const baseStyle = this.props.baseStyle;
+    const borderRadiusRaw = this.props.borderRadius;
 
     let borderRadius = {};
 
-    for (const key in actorStylesFromProps.borderRadius) {
-      let combinedRadii = `${
-        actorStylesFromProps.borderRadius[key].radiusX
-      }px ${actorStylesFromProps.borderRadius[key].radiusY}px`;
+    for (const key in borderRadiusRaw) {
+      let combinedRadii = `${borderRadiusRaw[key].radiusX}px ${
+        borderRadiusRaw[key].radiusY
+      }px`;
       borderRadius[key] = combinedRadii;
     }
 
     const styles = {
-      backgroundColor: actorStylesFromProps.backgroundColor,
-      width: actorStylesFromProps.width + "px",
-      height: actorStylesFromProps.height + "px",
-      margin: actorStylesFromProps.margin,
-      border: `${actorStylesFromProps.border.borderWidth}px ${
-        actorStylesFromProps.border.borderStyle
-      } ${actorStylesFromProps.border.borderColor}`,
+      backgroundColor: baseStyle.backgroundColor,
+      width: baseStyle.width + "px",
+      height: baseStyle.height + "px",
+      margin: baseStyle.margin,
+
+      border: `${borderStyle.borderWidth}px ${borderStyle.borderStyle} ${
+        borderStyle.borderColor
+      }`,
+
       borderTopLeftRadius: borderRadius.borderTopLeftRadius,
       borderTopRightRadius: borderRadius.borderTopRightRadius,
       borderBottomLeftRadius: borderRadius.borderBottomLeftRadius,
@@ -40,7 +44,10 @@ class Actor extends Component {
 }
 
 const mapStateToProps = state => ({
-  styles: state.actor.actorStyle
+  baseStyle: state.actor.baseStyle,
+  borderStyle: state.actor.borderStyle,
+  boxShadow: state.actor.boxShadow,
+  borderRadius: state.actor.borderRadius
 });
 
 export default connect(

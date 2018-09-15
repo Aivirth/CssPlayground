@@ -38,12 +38,12 @@ export default class Range extends React.Component {
           type="range"
           min={min}
           max={max}
-          defaultValue={defaultValue}
+          //defaultValue={defaultValue}
           step={step}
           className="range"
           id={id}
           value={value}
-          onChange={this.onRangeChange}
+          onChange={this.props.changed}
         />
       </React.Fragment>
     );
