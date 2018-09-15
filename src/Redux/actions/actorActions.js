@@ -6,9 +6,9 @@ export const getStyles = () => {
   };
 };
 
-export const updtBoxShadow = newBowShadow => {
+export const updtBoxShadow = newBoxShadow => {
   return {
     type: UPDT_BOXSHADOW,
-    payload: newBowShadow
+    payload: newBoxShadow
   };
 };
