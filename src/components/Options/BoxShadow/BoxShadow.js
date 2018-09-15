@@ -9,8 +9,9 @@ class BoxShadow extends Component {
 
   componentDidMount() {
     this.props.getStyles();
-    console.log("BoxShadow", this.props);
   }
+
+  onColorChange = () => {};
 
   onRangeChange = e => {
     const updatedProperty = {
@@ -33,24 +34,41 @@ class BoxShadow extends Component {
     return (
       <div>
         <Range
-          title="Opacity"
+          title="Vertical Offset"
           min="0"
-          max="1"
-          value={opacity}
-          step="0.1"
-          id="idrangetest"
+          max="200"
+          value={verticalOffset}
+          id="vertical_offset"
           changed={this.onRangeChange}
-          identifier="opacity"
+          identifier="verticalOffset"
         />
         <Range
-          title="Horizontal Height"
-          min="1"
+          title="Horizontal Offset"
+          min="0"
           max="200"
           value={horizontalOffset}
-          step="1"
-          id="idrangetest2"
+          id="horizontal_offset"
           changed={this.onRangeChange}
           identifier="horizontalOffset"
+        />
+        <Range
+          title="Blur"
+          min="0"
+          max="200"
+          value={blur}
+          id="blur"
+          changed={this.onRangeChange}
+          identifier="blur"
+        />
+        <Range
+          title="Spread"
+          min="0"
+          max="75"
+          value={spread}
+          step="1"
+          id="spread"
+          changed={this.onRangeChange}
+          identifier="spread"
         />
       </div>
     );

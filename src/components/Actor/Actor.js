@@ -15,8 +15,6 @@ class Actor extends Component {
     const borderRadiusRaw = this.props.borderRadius;
     const boxShadow = this.props.boxShadow;
 
-    console.log(boxShadow);
-
     const borderRadius = {};
 
     for (const key in borderRadiusRaw) {
