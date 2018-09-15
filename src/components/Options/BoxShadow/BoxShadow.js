@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Range from "../../UI/Input/Range/Range";
 
 import { connect } from "react-redux";
-import { getStyles } from "../../../Redux/actions/actorActions";
+import { getStyles, updtBoxShadow } from "../../../Redux/actions/actorActions";
 
 class BoxShadow extends Component {
   state = {};
@@ -13,9 +13,11 @@ class BoxShadow extends Component {
   }
 
   onRangeChange = e => {
-    console.log(e.target.value);
-    console.log(e.target.id);
-    e.target.value = e.target.value;
+    const updatedProperty = {
+      ...this.props.boxShadow
+    };
+    updatedProperty[e.target.dataset.identifier] = e.target.value;
+    this.props.updtBoxShadow(updatedProperty);
   };
 
   render() {
@@ -34,19 +36,21 @@ class BoxShadow extends Component {
           title="Opacity"
           min="0"
           max="1"
-          defaultValue={opacity}
+          value={opacity}
           step="0.1"
           id="idrangetest"
           changed={this.onRangeChange}
+          identifier="opacity"
         />
         <Range
           title="Horizontal Height"
           min="1"
           max="200"
-          defaultValue={horizontalOffset}
+          value={horizontalOffset}
           step="1"
           id="idrangetest2"
           changed={this.onRangeChange}
+          identifier="horizontalOffset"
         />
       </div>
     );
@@ -59,5 +63,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getStyles }
+  { getStyles, updtBoxShadow }
 )(BoxShadow);

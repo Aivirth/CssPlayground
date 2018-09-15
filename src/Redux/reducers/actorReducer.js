@@ -1,4 +1,4 @@
-import { GET_STYLES } from "../actions/types";
+import { GET_STYLES, UPDT_BOXSHADOW } from "../actions/types";
 const initialState = {
   baseStyle: {
     width: 250,
@@ -47,6 +47,12 @@ export default function(state = initialState, action) {
     case GET_STYLES:
       return {
         ...state
+      };
+
+    case UPDT_BOXSHADOW:
+      return {
+        ...state,
+        boxShadow: action.payload
       };
 
     default:
