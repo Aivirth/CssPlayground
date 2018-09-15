@@ -38,7 +38,7 @@ const initialState = {
     spread: 5,
     color: "#000",
     opacity: 0.3,
-    inset: false
+    inset: ""
   }
 };
 

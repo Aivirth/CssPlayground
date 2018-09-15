@@ -41,8 +41,9 @@ class Actor extends Component {
 
       boxShadow: `${boxShadow.horizontalOffset}px ${
         boxShadow.verticalOffset
-      }px ${boxShadow.blur}px ${boxShadow.spread}px ${boxShadow.color}`
-      //boxShadow: "10px 10px 5px 0px rgba(0,0,0,0.75)"
+      }px ${boxShadow.blur}px ${boxShadow.spread}px ${boxShadow.color} ${
+        boxShadow.inset
+      }`
     };
 
     return <div id="Actor" style={styles} />;

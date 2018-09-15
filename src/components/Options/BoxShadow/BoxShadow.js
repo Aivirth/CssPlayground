@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Range from "../../UI/Input/Range/Range";
+import Switch from "../../UI/Input/Switch/Switch";
 
 import { connect } from "react-redux";
 import { getStyles, updtBoxShadow } from "../../../Redux/actions/actorActions";
@@ -11,7 +12,15 @@ class BoxShadow extends Component {
     this.props.getStyles();
   }
 
-  onColorChange = () => {};
+  onSwitchChange = e => {
+    const updatedProperty = {
+      ...this.props.boxShadow
+    };
+    const checked = e.target.checked ? "inset" : "";
+
+    updatedProperty[e.target.dataset.identifier] = checked;
+    this.props.updtBoxShadow(updatedProperty);
+  };
 
   onRangeChange = e => {
     const updatedProperty = {
@@ -69,6 +78,12 @@ class BoxShadow extends Component {
           id="spread"
           changed={this.onRangeChange}
           identifier="spread"
+        />
+        <hr />
+        <Switch
+          identifier="inset"
+          value={inset}
+          changed={this.onSwitchChange}
         />
       </div>
     );
