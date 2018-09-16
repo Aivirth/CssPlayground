@@ -35,8 +35,6 @@ class BoxShadow extends Component {
     const updatedProperty = {
       ...this.props.boxShadow
     };
-
-    console.log(e.target.value);
     updatedProperty[e.target.dataset.identifier] = e.target.value;
     this.props.updtBoxShadow(updatedProperty);
   };
