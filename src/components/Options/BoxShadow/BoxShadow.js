@@ -27,7 +27,7 @@ class BoxShadow extends PureComponent {
     const updatedProperty = {
       ...this.props.boxShadow
     };
-    updatedProperty[e.target.dataset.identifier] = e.target.value;
+    updatedProperty[e.target.dataset.identifier] = +e.target.value;
     this.props.updtBoxShadow(updatedProperty);
   };
 
@@ -35,7 +35,7 @@ class BoxShadow extends PureComponent {
     const updatedProperty = {
       ...this.props.boxShadow
     };
-    updatedProperty[e.target.dataset.identifier] = e.target.value;
+    updatedProperty[e.target.dataset.identifier] = +e.target.value;
     this.props.updtBoxShadow(updatedProperty);
   };
 
@@ -53,8 +53,8 @@ class BoxShadow extends PureComponent {
       <div>
         <Range
           title="Vertical Offset"
-          min="0"
-          max="200"
+          min="-100"
+          max="100"
           value={verticalOffset}
           id="vertical_offset"
           changed={this.onRangeChange}
@@ -62,8 +62,8 @@ class BoxShadow extends PureComponent {
         />
         <Range
           title="Horizontal Offset"
-          min="0"
-          max="200"
+          min="-100"
+          max="100"
           value={horizontalOffset}
           id="horizontal_offset"
           changed={this.onRangeChange}

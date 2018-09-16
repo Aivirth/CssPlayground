@@ -32,12 +32,12 @@ const initialState = {
   },
 
   boxShadow: {
-    verticalOffset: 20,
-    horizontalOffset: 10,
+    verticalOffset: 0,
+    horizontalOffset: 0,
     blur: 3,
     spread: 5,
     color: "#b71c1c",
-    opacity: 0.3,
+    opacity: 0.8,
     inset: ""
   }
 };
