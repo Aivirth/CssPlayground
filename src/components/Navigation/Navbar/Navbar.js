@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default () => {
   return (
@@ -10,7 +11,7 @@ export default () => {
 
         <ul className="right hide-on-med-and-down">
           <li>
-            <a href="/about">About</a>
+            <Link to="/about">About</Link>
           </li>
           <li className="active">
             <a href="/">Github</a>
