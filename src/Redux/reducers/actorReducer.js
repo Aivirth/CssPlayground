@@ -4,13 +4,13 @@ const initialState = {
     width: 200,
     height: 200,
     margin: "auto",
-    backgroundColor: "orangered"
+    backgroundColor: "#00bcd4"
   },
 
   borderStyle: {
     borderWidth: 2,
     borderStyle: "solid",
-    borderColor: "blue"
+    borderColor: "#1b5e20"
   },
   borderRadius: {
     borderTopLeftRadius: {
@@ -36,7 +36,7 @@ const initialState = {
     horizontalOffset: 10,
     blur: 3,
     spread: 5,
-    color: "#000000",
+    color: "#ff6f00",
     opacity: 0.3,
     inset: ""
   }
