@@ -104,6 +104,17 @@ class BoxShadow extends Component {
           value={color}
           id="color"
         />
+
+        <Range
+          title="Opacity"
+          min="0"
+          max="1"
+          value={opacity}
+          step="0.1"
+          id="opacity"
+          changed={this.onRangeChange}
+          identifier="opacity"
+        />
       </div>
     );
   }
