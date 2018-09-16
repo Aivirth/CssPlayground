@@ -36,7 +36,7 @@ const initialState = {
     horizontalOffset: 10,
     blur: 3,
     spread: 5,
-    color: "#ff6f00",
+    color: "#b71c1c",
     opacity: 0.3,
     inset: ""
   }

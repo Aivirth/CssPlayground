@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import Range from "../../UI/Input/Range/Range";
 import Switch from "../../UI/Input/Switch/Switch";
 import ColorPicker from "../../UI/Input/ColorPicker/ColorPicker";
@@ -6,7 +6,7 @@ import ColorPicker from "../../UI/Input/ColorPicker/ColorPicker";
 import { connect } from "react-redux";
 import { getStyles, updtBoxShadow } from "../../../Redux/actions/actorActions";
 
-class BoxShadow extends Component {
+class BoxShadow extends PureComponent {
   state = {};
 
   componentDidMount() {
