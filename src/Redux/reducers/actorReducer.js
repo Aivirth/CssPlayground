@@ -1,4 +1,4 @@
-import { GET_STYLES, UPDT_BOXSHADOW } from "../actions/types";
+import { GET_STYLES, UPDT_BOXSHADOW, UPDT_BORDERRADIUS } from "../actions/types";
 const initialState = {
   baseStyle: {
     width: 200,
@@ -53,6 +53,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         boxShadow: action.payload
+      };
+
+      case UPDT_BORDERRADIUS:
+      return {
+        ...state,
+        borderRadius: action.payload
       };
 
     default:

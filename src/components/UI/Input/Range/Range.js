@@ -1,7 +1,7 @@
 import React from "react";
 
 export default props => {
-  const { title, min, max, id, step, value, changed, identifier } = props;
+  const { title, min, max, id, step, value, changed, identifier, radiusDir } = props;
 
   return (
     <React.Fragment>
@@ -18,6 +18,7 @@ export default props => {
         value={value}
         onChange={changed}
         data-identifier={identifier}
+        data-radiusdir={radiusDir}
       />
     </React.Fragment>
   );

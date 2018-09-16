@@ -1,2 +1,3 @@
 export const GET_STYLES = "GET_STYLES";
 export const UPDT_BOXSHADOW = "UPDT_BOXSHADOW";
+export const UPDT_BORDERRADIUS = "UPDT_BORDERRADIUS";
