@@ -25,7 +25,10 @@ export default () => {
             </a>
             <div className="collapsible-body" style={{ display: "block" }}>
               <ul>
-                <li className="active">
+                <li>
+                  <Link to="/">Base</Link>
+                </li>
+                <li>
                   <Link to="/border-radius">Border Radius</Link>
                 </li>
                 <li>
@@ -34,6 +37,9 @@ export default () => {
                 <li>
                   <Link to="/borders">Borders</Link>
                 </li>
+                {/* <li className="active">
+                  <Link to="/temp">lorem</Link>
+                </li> */}
               </ul>
             </div>
           </li>
