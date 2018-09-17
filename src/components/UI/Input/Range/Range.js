@@ -1,13 +1,23 @@
 import React from "react";
 
 export default props => {
-  const { title, min, max, id, step, value, changed, identifier, radiusDir } = props;
+  const {
+    title,
+    min,
+    max,
+    id,
+    step,
+    value,
+    changed,
+    identifier,
+    radiusDir
+  } = props;
 
   return (
     <React.Fragment>
-      <p>
-        {title}: {value}
-      </p>
+      <label>
+        {title}: <strong>{value}</strong>
+      </label>
       <input
         type="range"
         min={min}

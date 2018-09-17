@@ -3,7 +3,7 @@ import React from "react";
 export default props => {
   const { changed, id, identifier, value } = props;
   return (
-    <React.Fragment>
+    <div>
       <label htmlFor={identifier}>
         Color: {value}
         {"   "}
@@ -16,6 +16,6 @@ export default props => {
         data-identifier={identifier}
         value={value}
       />
-    </React.Fragment>
+    </div>
   );
 };
