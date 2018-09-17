@@ -2,8 +2,10 @@ import {
   GET_STYLES,
   UPDT_BOXSHADOW,
   UPDT_BORDERRADIUS,
-  UPDT_BORDERS
+  UPDT_BORDERS,
+  UPDT_BASE
 } from "../actions/types";
+
 const initialState = {
   baseStyle: {
     width: 200,
@@ -82,6 +84,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         borderStyle: action.payload
+      };
+
+    case UPDT_BASE:
+      return {
+        ...state,
+        baseStyle: action.payload
       };
 
     default:
