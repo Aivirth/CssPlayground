@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Actor from "../../components/Actor/Actor";
 import BoxShadow from "../../components/Options/BoxShadow/BoxShadow";
 import BorderRadius from "../../components/Options/BorderRadius/BorderRadius";
+import Borders from "../../components/Options/Borders/Borders";
 import NotFound from "../../components/Pages/NotFound";
 
 export default () => {
@@ -16,6 +17,7 @@ export default () => {
           <Switch>
             <Route exact path="/box-shadow" component={BoxShadow} />
             <Route exact path="/border-radius" component={BorderRadius} />
+            <Route exact path="/borders" component={Borders} />
             <Route component={NotFound} />
           </Switch>
         </div>

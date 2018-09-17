@@ -35,7 +35,7 @@ class BoxShadow extends PureComponent {
     const updatedProperty = {
       ...this.props.boxShadow
     };
-    updatedProperty[e.target.dataset.identifier] = +e.target.value;
+    updatedProperty[e.target.dataset.identifier] = e.target.value;
     this.props.updtBoxShadow(updatedProperty);
   };
 
