@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import {
   getStyles,
@@ -6,7 +6,7 @@ import {
 } from "../../../Redux/actions/actorActions";
 import Range from "../../UI/Input/Range/Range";
 
-class BorderRadius extends Component {
+class BorderRadius extends PureComponent {
   componentDidMount() {
     this.props.getStyles();
   }

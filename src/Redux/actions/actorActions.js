@@ -1,4 +1,9 @@
-import { GET_STYLES, UPDT_BOXSHADOW, UPDT_BORDERRADIUS } from "./types";
+import {
+  GET_STYLES,
+  UPDT_BOXSHADOW,
+  UPDT_BORDERRADIUS,
+  UPDT_BORDERS
+} from "./types";
 
 export const getStyles = () => {
   return {
@@ -17,5 +22,12 @@ export const updtBorderRadius = newBorderRadius => {
   return {
     type: UPDT_BORDERRADIUS,
     payload: newBorderRadius
+  };
+};
+
+export const updtBorders = newBorders => {
+  return {
+    type: UPDT_BORDERS,
+    payload: newBorders
   };
 };
