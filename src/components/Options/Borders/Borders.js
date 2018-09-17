@@ -42,7 +42,7 @@ class Borders extends PureComponent {
 
   render() {
     const { borderWidth, borderStyle, borderColor } = this.props.borderStyle;
-    console.log(borderStyle);
+
     return (
       <div>
         <h4>Borders</h4>
