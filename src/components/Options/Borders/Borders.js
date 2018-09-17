@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import Range from "../../UI/Input/Range/Range";
 import ColorPicker from "../../UI/Input/ColorPicker/ColorPicker";
+import Select from "../../UI/Input/Select/Select";
 
 import { connect } from "react-redux";
 import { getStyles, updtBorders } from "../../../Redux/actions/actorActions";
@@ -16,7 +17,18 @@ class Borders extends PureComponent {
     const updatedProperty = {
       ...this.props.borderStyle
     };
+
     updatedProperty[e.target.dataset.identifier] = +e.target.value;
+    this.props.updtBorders(updatedProperty);
+  };
+
+  onSelectChange = e => {
+    const updatedProperty = {
+      ...this.props.borderStyle
+    };
+
+    updatedProperty.activeBorderStyle = e.target.value;
+
     this.props.updtBorders(updatedProperty);
   };
 
@@ -30,6 +42,7 @@ class Borders extends PureComponent {
 
   render() {
     const { borderWidth, borderStyle, borderColor } = this.props.borderStyle;
+    console.log(borderStyle);
     return (
       <div>
         <Range
@@ -42,7 +55,13 @@ class Borders extends PureComponent {
           identifier="borderWidth"
         />
 
-        <hr />
+        <Select
+          title="Borders Style"
+          values={borderStyle}
+          changed={this.onSelectChange}
+          identifier="borderStyle"
+        />
+
         <div style={{ marginTop: "15px", marginBottom: "15px" }} />
 
         <ColorPicker

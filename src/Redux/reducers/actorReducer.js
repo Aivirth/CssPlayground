@@ -14,7 +14,19 @@ const initialState = {
 
   borderStyle: {
     borderWidth: 2,
-    borderStyle: "solid",
+    borderStyle: [
+      { name: "Solid", value: "solid" },
+      { name: "None", value: "none" },
+      { name: "Hidden", value: "hidden" },
+      { name: "Dotted", value: "dotted" },
+      { name: "Dashed", value: "dashed" },
+      { name: "Double", value: "double" },
+      { name: "Groove", value: "groove" },
+      { name: "Ridge", value: "ridge" },
+      { name: "Inset", value: "inset" },
+      { name: "Outset", value: "outset" }
+    ],
+    activeBorderStyle: "solid",
     borderColor: "#1b5e20"
   },
   borderRadius: {

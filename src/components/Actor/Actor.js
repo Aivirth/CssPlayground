@@ -49,7 +49,7 @@ class Actor extends Component {
       height: baseStyle.height + "px",
       margin: baseStyle.margin,
 
-      border: `${borderStyle.borderWidth}px ${borderStyle.borderStyle} ${
+      border: `${borderStyle.borderWidth}px ${borderStyle.activeBorderStyle} ${
         borderStyle.borderColor
       }`,
 
