@@ -33,6 +33,7 @@ class BorderRadius extends PureComponent {
 
     return (
       <div>
+        <h4>Border Radius</h4>
         <Range
           title="Border Top-Left (X radius)"
           min="0"

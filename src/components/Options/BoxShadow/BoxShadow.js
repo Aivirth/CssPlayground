@@ -51,6 +51,7 @@ class BoxShadow extends PureComponent {
     } = this.props.boxShadow;
     return (
       <div>
+        <h4>Box Shadows</h4>
         <Range
           title="Vertical Offset"
           min="-100"

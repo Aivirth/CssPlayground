@@ -10,8 +10,6 @@ import NotFound from "../../components/Pages/NotFound";
 export default () => {
   return (
     <main style={{ flex: "1", paddingLeft: "25px" }}>
-      <h3>Option title</h3>
-
       <div className="row">
         <div className="col s6">
           <Switch>
@@ -21,7 +19,7 @@ export default () => {
             <Route component={NotFound} />
           </Switch>
         </div>
-        <div className="col s6">
+        <div className="col s6" style={{ paddingTop: "40px" }}>
           <Actor />
         </div>
       </div>

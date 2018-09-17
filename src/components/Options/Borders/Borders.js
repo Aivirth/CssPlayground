@@ -45,6 +45,7 @@ class Borders extends PureComponent {
     console.log(borderStyle);
     return (
       <div>
+        <h4>Borders</h4>
         <Range
           title="Borders Width"
           min="0"
