@@ -13,7 +13,7 @@ const initialState = {
   },
 
   borderStyle: {
-    borderWidth: 2,
+    borderWidth: 1,
     borderStyle: [
       { name: "Solid", value: "solid" },
       { name: "None", value: "none" },
@@ -27,30 +27,30 @@ const initialState = {
       { name: "Outset", value: "outset" }
     ],
     activeBorderStyle: "solid",
-    borderColor: "#1b5e20"
+    borderColor: "#ffb900"
   },
   borderRadius: {
     borderTopLeftRadius: {
-      radiusX: 25,
-      radiusY: 30
+      radiusX: 0,
+      radiusY: 0
     },
     borderTopRightRadius: {
-      radiusX: 15,
-      radiusY: 50
+      radiusX: 0,
+      radiusY: 0
     },
     borderBottomLeftRadius: {
-      radiusX: 50,
-      radiusY: 25
+      radiusX: 0,
+      radiusY: 0
     },
     borderBottomRightRadius: {
-      radiusX: 25,
-      radiusY: 50
+      radiusX: 0,
+      radiusY: 0
     }
   },
 
   boxShadow: {
-    verticalOffset: 0,
-    horizontalOffset: 0,
+    verticalOffset: 10,
+    horizontalOffset: 10,
     blur: 3,
     spread: 5,
     color: "#b71c1c",
