@@ -8,6 +8,8 @@ import Borders from "../../components/Options/Borders/Borders";
 import Base from "../../components/Options/Base/Base";
 import NotFound from "../../components/Pages/NotFound";
 
+import Test from "../../components/Test/Test";
+
 export default () => {
   return (
     <main style={{ flex: "1", paddingLeft: "25px" }}>
@@ -23,6 +25,7 @@ export default () => {
         </div>
         <div className="col s6" style={{ paddingTop: "40px" }}>
           <Actor />
+          <Test />
         </div>
       </div>
     </main>
