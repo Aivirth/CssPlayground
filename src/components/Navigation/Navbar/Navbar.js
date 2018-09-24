@@ -9,7 +9,9 @@ export default () => {
           <li>
             <a
               href="#"
-              className="waves-effect waves-light orange darken-2 btn-small"
+              className="waves-effect waves-light orange darken-2 btn-small sidenav-trigger"
+              data-target="slide-out"
+              style={{ display: "inline-block" }}
             >
               <i className="material-icons left">menu</i>
               Menu
