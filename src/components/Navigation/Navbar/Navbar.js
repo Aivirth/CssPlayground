@@ -3,11 +3,24 @@ import { Link } from "react-router-dom";
 
 export default () => {
   return (
-    <nav style={{ flex: "0 0 100%" }}>
+    <nav>
       <div className="nav-wrapper container">
-        <a href="/" className="brand-logo ">
-          CSS PlayGround
-        </a>
+        <ul className="left">
+          <li>
+            <a
+              href="#"
+              className="waves-effect waves-light orange darken-2 btn-small"
+            >
+              <i className="material-icons left">menu</i>
+              Menu
+            </a>
+          </li>
+          <li>
+            <a href="/" className="brand-logo ">
+              CSS PlayGround
+            </a>
+          </li>
+        </ul>
 
         <ul className="right hide-on-med-and-down">
           <li>

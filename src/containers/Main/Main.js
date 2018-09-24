@@ -12,7 +12,7 @@ import Test from "../../components/Test/Test";
 
 export default () => {
   return (
-    <main style={{ flex: "1", paddingLeft: "25px" }}>
+    <main style={{ paddingLeft: "25px" }}>
       <div className="row">
         <div className="col s6">
           <Switch>

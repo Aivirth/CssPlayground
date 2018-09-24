@@ -15,14 +15,16 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <div className="App" style={{ display: "flex", flexWrap: "wrap" }}>
+          <div className="App">
             <Navbar />
-            <Sidenav />
-            <Switch>
-              <Route exact path="/about" component={About} />
-              <Route path="/" component={Main} />
-              <Route component={NotFound} />
-            </Switch>
+            <div className="container">
+              <Sidenav />
+              <Switch>
+                <Route exact path="/about" component={About} />
+                <Route path="/" component={Main} />
+                <Route component={NotFound} />
+              </Switch>
+            </div>
           </div>
         </Router>
       </Provider>
