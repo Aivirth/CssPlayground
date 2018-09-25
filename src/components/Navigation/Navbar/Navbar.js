@@ -21,7 +21,11 @@ export default () => {
             </a>
           </li>
           <li>
-            <Link to="/" style={{ fontSize: "2rem" }}>
+            <Link
+              to="/"
+              style={{ fontSize: "2rem", padding: "0px 5px" }}
+              className="center brand-logo"
+            >
               CSS PlayGround
             </Link>
           </li>
