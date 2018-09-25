@@ -21,6 +21,7 @@ export default class BottomModal extends PureComponent {
           }}
           id={`${id}`}
           className="modal bottom-sheet"
+          style={{ color: "#000000" }}
         >
           <div className="container">
             <div className="modal-content">

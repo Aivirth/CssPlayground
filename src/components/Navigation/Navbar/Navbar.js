@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import BottomModal from "../../../containers/Layout/BottomModal/BottomModal";
 
 export default () => {
   return (
@@ -19,6 +20,16 @@ export default () => {
               <i className="material-icons left">build</i>
               Options
             </a>
+          </li>
+          <li>
+            <BottomModal
+              buttonText="Styles"
+              id="bottom"
+              header="Modal header test"
+              additionalBtnClasses="light-blue lighten-2"
+            >
+              Test
+            </BottomModal>
           </li>
           <li>
             <Link
