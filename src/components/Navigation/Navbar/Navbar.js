@@ -8,7 +8,10 @@ export default () => {
         <ul className="left">
           <li>
             <a
-              href="#"
+              href=""
+              onClick={e => {
+                e.preventDefault();
+              }}
               className="waves-effect waves-light orange darken-2 btn-small sidenav-trigger"
               data-target="slide-out"
               style={{ display: "inline-block" }}

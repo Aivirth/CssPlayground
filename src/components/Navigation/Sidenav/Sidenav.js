@@ -1,31 +1,30 @@
 import React, { PureComponent } from "react";
 import { Link } from "react-router-dom";
+import M from "materialize-css";
 
-export default () => {
-  return (
-    <div className="col s4">
+export default class Sidenav extends PureComponent {
+  componentDidMount() {
+    M.Sidenav.init(this.sidenav);
+  }
+  render() {
+    return (
       <ul
-        id="nav-mobile"
+        id="slide-out"
         className="sidenav "
-        style={{
-          overflow: "auto",
-          transform: "translateX(0px)",
-          position: "static",
-          display: "inline-block",
-          height: "calc(100vh - 70px)",
-          paddingBottom: "0px"
+        ref={sidenav => {
+          this.sidenav = sidenav;
         }}
       >
-        <li>
+        <li className="sidenav-close">
           <Link to="/">Base</Link>
         </li>
-        <li>
+        <li className="sidenav-close">
           <Link to="/border-radius">Border Radius</Link>
         </li>
-        <li>
+        <li className="sidenav-close">
           <Link to="/box-shadow">Box Shadow</Link>
         </li>
-        <li>
+        <li className="sidenav-close">
           <Link to="/borders">Borders</Link>
         </li>
         {/* <li className="active">
@@ -43,6 +42,6 @@ export default () => {
           </a>
         </li>
       </ul>
-    </div>
-  );
-};
+    );
+  }
+}

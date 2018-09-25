@@ -12,21 +12,19 @@ import Test from "../../components/Test/Test";
 
 export default () => {
   return (
-    <main className="col s8">
-      <div className="row" style={{ marginBottom: "0px" }}>
-        <div className="col s6">
-          <Switch>
-            <Route exact path="/" component={Base} />
-            <Route exact path="/box-shadow" component={BoxShadow} />
-            <Route exact path="/border-radius" component={BorderRadius} />
-            <Route exact path="/borders" component={Borders} />
-            <Route component={NotFound} />
-          </Switch>
-        </div>
-        <div className="col s6" style={{ paddingTop: "40px" }}>
-          <Actor />
-          <Test />
-        </div>
+    <main className="row">
+      <div className="col s6">
+        <Switch>
+          <Route exact path="/" component={Base} />
+          <Route exact path="/box-shadow" component={BoxShadow} />
+          <Route exact path="/border-radius" component={BorderRadius} />
+          <Route exact path="/borders" component={Borders} />
+          <Route component={NotFound} />
+        </Switch>
+      </div>
+      <div className="col s6" style={{ paddingTop: "40px" }}>
+        <Actor />
+        <Test />
       </div>
     </main>
   );
