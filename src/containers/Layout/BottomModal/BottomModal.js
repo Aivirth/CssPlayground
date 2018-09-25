@@ -6,11 +6,11 @@ export default class BottomModal extends PureComponent {
     M.Modal.init(this.bottomModal);
   }
   render() {
-    const { id, header, buttonText } = this.props;
+    const { id, header, buttonText, additionalBtnClasses } = this.props;
     return (
       <React.Fragment>
         <a
-          className="waves-effect waves-light btn modal-trigger"
+          className={`waves-effect waves-light btn modal-trigger ${additionalBtnClasses}`}
           href={`#${id}`}
         >
           {buttonText}

@@ -34,7 +34,12 @@ export default () => {
       >
         <Actor />
         <Test />
-        <BottomModal buttonText="Open" id="bottom" header="Modal header test">
+        <BottomModal
+          buttonText="Open"
+          id="bottom"
+          header="Modal header test"
+          additionalBtnClasses="light-blue lighten-2"
+        >
           Test
         </BottomModal>
       </div>
