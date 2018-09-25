@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import M from "materialize-css";
 
 export default class Test extends Component {
@@ -50,19 +51,16 @@ export default class Test extends Component {
           }}
         >
           <li>
-            <a href="#!">
-              <i className="material-icons">cloud</i>
-              First Link With Icon
-            </a>
+            <Link to="/">Base</Link>
           </li>
           <li>
-            <a href="#!">Second Link</a>
+            <Link to="/border-radius">Border Radius</Link>
           </li>
           <li>
-            <div className="divider" />
+            <Link to="/box-shadow">Box Shadow</Link>
           </li>
           <li>
-            <a className="subheader">Subheader</a>
+            <Link to="/borders">Borders</Link>
           </li>
           <li>
             <a className="waves-effect" href="#!">

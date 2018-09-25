@@ -14,38 +14,21 @@ export default () => {
         height: "calc(100vh - 64px)"
       }}
     >
-      <li className="no-padding">
-        <ul className="collapsible collapsible-accordion">
-          <li className="bold active">
-            <a
-              className="collapsible-header waves-effect waves-teal"
-              tabIndex="0"
-            >
-              Lorem
-            </a>
-            <div className="collapsible-body" style={{ display: "block" }}>
-              <ul>
-                <li>
-                  <Link to="/">Base</Link>
-                </li>
-                <li>
-                  <Link to="/border-radius">Border Radius</Link>
-                </li>
-                <li>
-                  <Link to="/box-shadow">Box Shadow</Link>
-                </li>
-                <li>
-                  <Link to="/borders">Borders</Link>
-                </li>
-                {/* <li className="active">
+      <li>
+        <Link to="/">Base</Link>
+      </li>
+      <li>
+        <Link to="/border-radius">Border Radius</Link>
+      </li>
+      <li>
+        <Link to="/box-shadow">Box Shadow</Link>
+      </li>
+      <li>
+        <Link to="/borders">Borders</Link>
+      </li>
+      {/* <li className="active">
                   <Link to="/temp">lorem</Link>
                 </li> */}
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </li>
-
       <li className="bold">
         <a href="/" className="waves-effect waves-teal">
           Lorem
