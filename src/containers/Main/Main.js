@@ -10,6 +10,8 @@ import NotFound from "../../components/Pages/NotFound";
 
 import Test from "../../components/Test/Test";
 
+import BottomModal from "../Layout/BottomModal/BottomModal";
+
 export default () => {
   return (
     <main className="row" style={{ marginBottom: "0px" }}>
@@ -32,6 +34,9 @@ export default () => {
       >
         <Actor />
         <Test />
+        <BottomModal buttonText="Open" id="bottom" header="Modal header test">
+          Test
+        </BottomModal>
       </div>
     </main>
   );

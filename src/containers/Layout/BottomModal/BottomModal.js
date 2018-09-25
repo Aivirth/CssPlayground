@@ -6,32 +6,39 @@ export default class BottomModal extends PureComponent {
     M.Modal.init(this.bottomModal);
   }
   render() {
+    const { id, header, buttonText } = this.props;
     return (
       <React.Fragment>
         <a
           className="waves-effect waves-light btn modal-trigger"
-          href="#modal1"
+          href={`#${id}`}
         >
-          Modal
+          {buttonText}
         </a>
         <div
           ref={bottomModal => {
             this.bottomModal = bottomModal;
           }}
-          id="modal1"
+          id={`${id}`}
           className="modal bottom-sheet"
         >
-          <div className="modal-content">
-            <h4>Modal Header</h4>
-            <p>A bunch of text</p>
-          </div>
-          <div className="modal-footer">
-            <a
-              href="#!"
-              className="modal-close waves-effect waves-green btn-flat"
-            >
-              Agree
-            </a>
+          <div className="container">
+            <div className="modal-content">
+              <h4>{`${header}`}</h4>
+              <div>{this.props.children}</div>
+            </div>
+            <div className="modal-footer" style={{ height: "auto" }}>
+              <a
+                href=""
+                onClick={e => {
+                  e.preventDefault();
+                }}
+                className="modal-close waves-effect waves-light btn-large"
+              >
+                <i className="material-icons right">check_circle</i>
+                Close
+              </a>
+            </div>
           </div>
         </div>
       </React.Fragment>
