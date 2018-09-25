@@ -12,7 +12,7 @@ import Test from "../../components/Test/Test";
 
 export default () => {
   return (
-    <main className="row">
+    <main className="row" style={{ marginBottom: "0px" }}>
       <div className="col s6">
         <Switch>
           <Route exact path="/" component={Base} />
@@ -22,7 +22,14 @@ export default () => {
           <Route component={NotFound} />
         </Switch>
       </div>
-      <div className="col s6" style={{ paddingTop: "40px" }}>
+      <div
+        className="col s6"
+        style={{
+          // display: "flex",
+          // height: "calc(100vh - 64px)"
+          paddingTop: "5rem"
+        }}
+      >
         <Actor />
         <Test />
       </div>
