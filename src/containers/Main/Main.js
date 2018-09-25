@@ -12,8 +12,8 @@ import Test from "../../components/Test/Test";
 
 export default () => {
   return (
-    <main style={{ paddingLeft: "25px" }}>
-      <div className="row">
+    <main className="col s8">
+      <div className="row" style={{ marginBottom: "0px" }}>
         <div className="col s6">
           <Switch>
             <Route exact path="/" component={Base} />

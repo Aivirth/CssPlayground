@@ -18,12 +18,14 @@ class App extends Component {
           <div className="App">
             <Navbar />
             <div className="container">
-              <Sidenav />
-              <Switch>
-                <Route exact path="/about" component={About} />
-                <Route path="/" component={Main} />
-                <Route component={NotFound} />
-              </Switch>
+              <div className="row" style={{ marginBottom: "0px" }}>
+                <Sidenav />
+                <Switch>
+                  <Route exact path="/about" component={About} />
+                  <Route path="/" component={Main} />
+                  <Route component={NotFound} />
+                </Switch>
+              </div>
             </div>
           </div>
         </Router>
