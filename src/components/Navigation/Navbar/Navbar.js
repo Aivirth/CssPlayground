@@ -16,8 +16,8 @@ export default () => {
               data-target="slide-out"
               style={{ display: "inline-block" }}
             >
-              <i className="material-icons left">menu</i>
-              Menu
+              <i className="material-icons left">build</i>
+              Options
             </a>
           </li>
           <li>
