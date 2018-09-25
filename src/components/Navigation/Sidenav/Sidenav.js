@@ -10,7 +10,7 @@ export default class Sidenav extends PureComponent {
     return (
       <ul
         id="slide-out"
-        className="sidenav "
+        className="sidenav"
         ref={sidenav => {
           this.sidenav = sidenav;
         }}
@@ -26,20 +26,6 @@ export default class Sidenav extends PureComponent {
         </li>
         <li className="sidenav-close">
           <Link to="/borders">Borders</Link>
-        </li>
-        {/* <li className="active">
-                  <Link to="/temp">lorem</Link>
-                </li> */}
-        <li className="bold">
-          <a href="/" className="waves-effect waves-teal">
-            Lorem
-          </a>
-        </li>
-        <li className="bold">
-          <a href="/" className="waves-effect waves-teal">
-            Lorem
-            <span className="new badge" />
-          </a>
         </li>
       </ul>
     );

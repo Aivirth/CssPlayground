@@ -8,8 +8,6 @@ import Borders from "../../components/Options/Borders/Borders";
 import Base from "../../components/Options/Base/Base";
 import NotFound from "../../components/Pages/NotFound";
 
-import Test from "../../components/Test/Test";
-
 export default () => {
   return (
     <main className="row" style={{ marginBottom: "0px" }}>
@@ -25,13 +23,10 @@ export default () => {
       <div
         className="col s6"
         style={{
-          // display: "flex",
-          // height: "calc(100vh - 64px)"
           paddingTop: "5rem"
         }}
       >
         <Actor />
-        <Test />
       </div>
     </main>
   );
