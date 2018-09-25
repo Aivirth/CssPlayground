@@ -21,9 +21,9 @@ export default () => {
             </a>
           </li>
           <li>
-            <a href="/" className="brand-logo ">
+            <Link to="/" style={{ fontSize: "2rem" }}>
               CSS PlayGround
-            </a>
+            </Link>
           </li>
         </ul>
 
