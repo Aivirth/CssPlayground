@@ -6,27 +6,36 @@ class Spectator extends PureComponent {
   componentDidMount() {
     this.props.getStyles();
   }
-  render() {
-    if (this.props.computedStyleCssText !== "") {
-      const cssTextRaw = this.props.computedStyleCssText;
 
-      const cssText = cssTextRaw.split(";");
-      const cssTextCleaned = cssText.map(el => el.trim());
-      const cssTextAtomized = cssTextCleaned
-        .filter(el => el !== "")
-        .map(property => property.split(": "));
+  componentDidUpdate(prevProps) {
+    if (this.props !== prevProps) {
+      if (this.props.computedStyleCssText !== "") {
+        const cssTextRaw = this.props.computedStyleCssText;
 
-      const cssTextProcessed = [];
+        const cssText = cssTextRaw.split(";");
+        const cssTextCleaned = cssText.map(el => el.trim());
+        const cssTextAtomized = cssTextCleaned
+          .filter(el => el !== "")
+          .map(property => property.split(": "));
 
-      cssTextAtomized.forEach(el => (cssTextProcessed[el[0]] = el[1]));
+        const cssTextProcessed = [];
 
-      console.log(cssText);
-      console.log(cssTextCleaned);
-      console.log(cssTextAtomized);
-      console.log(cssTextProcessed);
+        cssTextAtomized.forEach(el => (cssTextProcessed[el[0]] = el[1]));
+
+        console.log(cssText);
+        console.log(cssTextCleaned);
+        console.log(cssTextAtomized);
+        console.log(cssTextProcessed);
+
+        const borderRadius = cssTextProcessed["border-radius"];
+        console.log(borderRadius);
+
+        //handling of each Border Radius case
+      }
     }
-
-    return <div>Spectator Data : {this.props.computedStyleCssText}</div>;
+  }
+  render() {
+    return <div>Spectator Data : </div>;
   }
 }
 

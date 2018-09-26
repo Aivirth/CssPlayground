@@ -36,20 +36,20 @@ const initialState = {
   },
   borderRadius: {
     borderTopLeftRadius: {
-      radiusX: 0,
-      radiusY: 0
+      radiusX: 5,
+      radiusY: 2
     },
     borderTopRightRadius: {
-      radiusX: 0,
-      radiusY: 0
+      radiusX: 5,
+      radiusY: 4
     },
     borderBottomLeftRadius: {
-      radiusX: 0,
-      radiusY: 0
+      radiusX: 5,
+      radiusY: 7
     },
     borderBottomRightRadius: {
-      radiusX: 0,
-      radiusY: 0
+      radiusX: 5,
+      radiusY: 6
     }
   },
 
