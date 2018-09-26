@@ -16,9 +16,14 @@ class Spectator extends PureComponent {
         .filter(el => el !== "")
         .map(property => property.split(": "));
 
+      const cssTextProcessed = [];
+
+      cssTextAtomized.forEach(el => (cssTextProcessed[el[0]] = el[1]));
+
       console.log(cssText);
       console.log(cssTextCleaned);
       console.log(cssTextAtomized);
+      console.log(cssTextProcessed);
     }
 
     return <div>Spectator Data : {this.props.computedStyleCssText}</div>;
