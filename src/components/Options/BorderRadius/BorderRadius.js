@@ -19,9 +19,8 @@ class BorderRadius extends PureComponent {
     const updatedProperty = {
       ...this.props.borderRadius
     };
-    console.log(updatedProperty);
+
     const radiusDir = e.target.dataset.radiusdir;
-    console.log(radiusDir);
 
     updatedProperty[e.target.dataset.identifier][radiusDir] = +e.target.value;
     this.props.updtBorderRadius(updatedProperty);
