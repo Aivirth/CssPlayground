@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BottomModal from "../../../containers/Layout/BottomModal/BottomModal";
+import Spectator from "../../Spectator/Spectator";
 
 export default () => {
   return (
@@ -28,7 +29,7 @@ export default () => {
               header="Modal header test"
               additionalBtnClasses="light-blue lighten-2"
             >
-              Test
+              <Spectator />
             </BottomModal>
           </li>
           <li>

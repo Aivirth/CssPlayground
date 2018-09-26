@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 
 import { connect } from "react-redux";
-import { getStyles } from "../../Redux/actions/actorActions";
+import { getStyles, updtStyleCssText } from "../../Redux/actions/actorActions";
 
 class Actor extends Component {
   componentDidMount() {
     this.props.getStyles();
-    // console.log(this.props);
+    this.props.updtStyleCssText(this.domActor.style.cssText);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props !== prevProps) {
+      this.props.updtStyleCssText(this.domActor.style.cssText);
+    }
   }
 
   hexToRgb = hex => {
@@ -65,7 +71,15 @@ class Actor extends Component {
       }px rgba(${computedBoxShadowColor}) ${boxShadow.inset}`
     };
 
-    return <div id="Actor" style={styles} />;
+    return (
+      <div
+        ref={domActor => {
+          this.domActor = domActor;
+        }}
+        id="Actor"
+        style={styles}
+      />
+    );
   }
 }
 
@@ -73,10 +87,11 @@ const mapStateToProps = state => ({
   baseStyle: state.actor.baseStyle,
   borderStyle: state.actor.borderStyle,
   boxShadow: state.actor.boxShadow,
-  borderRadius: state.actor.borderRadius
+  borderRadius: state.actor.borderRadius,
+  computedStyleCssText: state.actor.computedStyleCssText
 });
 
 export default connect(
   mapStateToProps,
-  { getStyles }
+  { getStyles, updtStyleCssText }
 )(Actor);

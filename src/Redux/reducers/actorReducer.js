@@ -3,7 +3,8 @@ import {
   UPDT_BOXSHADOW,
   UPDT_BORDERRADIUS,
   UPDT_BORDERS,
-  UPDT_BASE
+  UPDT_BASE,
+  UPDT_STYLECSSTEXT
 } from "../actions/types";
 
 const initialState = {
@@ -13,6 +14,8 @@ const initialState = {
     margin: "auto",
     backgroundColor: "#00bcd4"
   },
+
+  computedStyleCssText: "",
 
   borderStyle: {
     borderWidth: 1,
@@ -90,6 +93,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         baseStyle: action.payload
+      };
+
+    case UPDT_STYLECSSTEXT:
+      return {
+        ...state,
+        computedStyleCssText: action.payload
       };
 
     default:
