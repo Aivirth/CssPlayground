@@ -7,21 +7,25 @@ class Spectator extends PureComponent {
     const cssTextRaw = this.props.computedStyleCssText;
 
     const cssText = cssTextRaw.split(";");
-    const cssTextCleaned = cssText.map(el => el.trim());
-    const cssTextAtomized = cssTextCleaned
+    const cssTextEmptySpaceTrimmed = cssText.map(el => el.trim());
+    const cssTextPropertiesArrays = cssTextEmptySpaceTrimmed
       .filter(el => el !== "")
       .map(property => property.split(": "));
 
-    const cssTextProcessed = [];
+    const cssTextPropertiesFlattenedArrays = [];
 
-    cssTextAtomized.forEach(el => (cssTextProcessed[el[0]] = el[1]));
+    cssTextPropertiesArrays.forEach(
+      el => (cssTextPropertiesFlattenedArrays[el[0]] = el[1])
+    );
 
     console.log(cssText);
-    console.log(cssTextCleaned);
-    console.log(cssTextAtomized);
-    console.log(cssTextProcessed);
+    console.log(cssTextEmptySpaceTrimmed);
+    console.log(cssTextPropertiesArrays);
+    console.log(cssTextPropertiesFlattenedArrays);
 
-    const borderRadius = cssTextProcessed["border-radius"];
+    const borderRadius = cssTextPropertiesFlattenedArrays[
+      "border-radius"
+    ].split(" ");
     console.log(borderRadius);
 
     //handling of each Border Radius case
