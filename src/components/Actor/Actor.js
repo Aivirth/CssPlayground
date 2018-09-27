@@ -8,40 +8,6 @@ class Actor extends Component {
     styles: {}
   };
 
-  formatComputedStyleCssTextFromProps = () => {
-    //todo - Repetition to address
-    const borderStyle = this.props.borderStyle;
-    const baseStyle = this.props.baseStyle;
-    const borderRadiusRaw = this.props.borderRadius;
-    const boxShadow = this.props.boxShadow;
-
-    const hexColor = this.hexToRgb(boxShadow.color);
-    hexColor.push(boxShadow.opacity);
-    const computedBoxShadowColor = hexColor.join(",");
-
-    const borderRadius = this.formatBorderRadius(borderRadiusRaw);
-
-    const computedStyles = {
-      "background-color": baseStyle.backgroundColor,
-      border: `${borderStyle.borderWidth}px ${borderStyle.activeBorderStyle} ${
-        borderStyle.borderColor
-      }`,
-      width: baseStyle.width + "px",
-      " height": baseStyle.height + "px",
-      "box-shadow": `${boxShadow.horizontalOffset}px ${
-        boxShadow.verticalOffset
-      }px ${boxShadow.blur}px ${
-        boxShadow.spread
-      }px rgba(${computedBoxShadowColor}) ${boxShadow.inset}`,
-      "border-top-left-radius": borderRadius.borderTopLeftRadius,
-      "border-top-right-radius": borderRadius.borderTopRightRadius,
-      "border-bottom-left-radius": borderRadius.borderBottomLeftRadius,
-      "border-bottom-right-radius": borderRadius.borderBottomRightRadius
-    };
-
-    return computedStyles;
-  };
-
   mapStateToStyles = () => {
     const borderStyle = this.props.borderStyle;
     const baseStyle = this.props.baseStyle;
@@ -81,20 +47,6 @@ class Actor extends Component {
 
   componentDidMount() {
     this.props.getStyles();
-    this.props.updtStyleCssText(this.formatComputedStyleCssTextFromProps());
-
-    const styles = this.mapStateToStyles();
-
-    this.setState({ styles: styles });
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props !== prevProps) {
-      // this.props.updtStyleCssText(this.formatComputedStyleCssTextFromProps());
-      const styles = this.mapStateToStyles();
-
-      this.setState({ styles: styles });
-    }
   }
 
   hexToRgb = hex => {
@@ -132,7 +84,7 @@ class Actor extends Component {
           this.domActor = domActor;
         }}
         id="Actor"
-        style={this.state.styles}
+        style={this.mapStateToStyles()}
       />
     );
   }

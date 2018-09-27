@@ -3,52 +3,80 @@ import { connect } from "react-redux";
 import { getStyles } from "../../Redux/actions/actorActions";
 
 class Spectator extends PureComponent {
-  formatComputedStyleCssTextFromProps = () => {
-    const cssTextRaw = this.props.computedStyleCssText;
+  state = {
+    actorStyles: {}
+  };
 
-    const cssText = cssTextRaw.split(";");
-    const cssTextEmptySpaceTrimmed = cssText.map(el => el.trim());
-    const cssTextPropertiesArrays = cssTextEmptySpaceTrimmed
-      .filter(el => el !== "")
-      .map(property => property.split(": "));
+  formatComputedStyle = domStyles => {
+    const styles = { ...domStyles };
 
-    const cssTextPropertiesFlattenedArrays = [];
+    const computedStyles = {
+      "background-color": styles.backgroundColor,
+      width: styles.width,
+      height: styles.height,
+      "box-shadow": styles.boxShadow,
+      "border-top-left-radius": styles.borderTopLeftRadius,
+      "border-top-right-radius": styles.borderTopRightRadius,
+      "border-bottom-left-radius": styles.borderBottomLeftRadius,
+      "border-bottom-right-radius": styles.borderBottomRightRadius
+    };
 
-    cssTextPropertiesArrays.forEach(
-      el => (cssTextPropertiesFlattenedArrays[el[0]] = el[1])
-    );
-
-    console.log(cssText);
-    console.log(cssTextEmptySpaceTrimmed);
-    console.log(cssTextPropertiesArrays);
-    console.log(cssTextPropertiesFlattenedArrays);
-
-    const borderRadius = cssTextPropertiesFlattenedArrays[
-      "border-radius"
-    ].split(" ");
-    console.log(borderRadius);
-
-    //handling of each Border Radius case
+    return computedStyles;
   };
 
   componentDidMount() {
     this.props.getStyles();
+
+    this.setState({
+      actorStyles: this.formatComputedStyle(
+        window.getComputedStyle(document.getElementById("Actor"))
+      )
+    });
   }
 
   componentDidUpdate(prevProps) {
     if (this.props !== prevProps) {
-      if (this.props.computedStyleCssText !== "") {
-        // this.formatComputedStyleCssTextFromProps();
-      }
+      this.setState({
+        actorStyles: this.formatComputedStyle(
+          window.getComputedStyle(document.getElementById("Actor"))
+        )
+      });
     }
   }
+
   render() {
-    return <div>Spectator Data : </div>;
+    const currentActorStyles = { ...this.state.actorStyles };
+    // for (let property in currentActorStyles) {
+    //   output.push(
+    //     `<strong>${property}</strong>: ${currentActorStyles[property]} <br/>`
+    //   );
+    // }
+
+    let output = Object.keys(currentActorStyles).map(key => [
+      key,
+      currentActorStyles[key]
+    ]);
+
+    console.log({ output });
+
+    return (
+      <div>
+        Spectator Data : <br />
+        {output.map((el, index) => (
+          <span key={`css_property_${index}`}>
+            <strong>{el[0]}</strong> : {el[1]}; <br />
+          </span>
+        ))}
+      </div>
+    );
   }
 }
 
 const mapStateToProps = state => ({
-  computedStyleCssText: state.actor.computedStyleCssText
+  baseStyle: state.actor.baseStyle,
+  borderStyle: state.actor.borderStyle,
+  boxShadow: state.actor.boxShadow,
+  borderRadius: state.actor.borderRadius
 });
 
 export default connect(
