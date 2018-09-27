@@ -15,7 +15,7 @@ const initialState = {
     backgroundColor: "#00bcd4"
   },
 
-  computedStyleCssText: "",
+  computedStyleCssText: {},
 
   borderStyle: {
     borderWidth: 1,

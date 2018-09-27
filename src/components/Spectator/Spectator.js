@@ -38,7 +38,7 @@ class Spectator extends PureComponent {
   componentDidUpdate(prevProps) {
     if (this.props !== prevProps) {
       if (this.props.computedStyleCssText !== "") {
-        this.formatComputedStyleCssTextFromProps();
+        // this.formatComputedStyleCssTextFromProps();
       }
     }
   }
