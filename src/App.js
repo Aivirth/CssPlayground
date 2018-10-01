@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Navbar from "./components/Navigation/Navbar/Navbar";
-import Sidenav from "./components/Navigation/Sidenav/Sidenav";
 import Main from "./containers/Main/Main";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -18,7 +17,6 @@ class App extends Component {
           <div className="App">
             <Navbar />
             <div className="container">
-              <Sidenav />
               <Switch>
                 <Route exact path="/about" component={About} />
                 <Route path="/" component={Main} />

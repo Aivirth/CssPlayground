@@ -1,20 +1,10 @@
 import React, { PureComponent } from "react";
 import { Link } from "react-router-dom";
-import M from "materialize-css";
 
 export default class Sidenav extends PureComponent {
-  componentDidMount() {
-    M.Sidenav.init(this.sidenav);
-  }
   render() {
     return (
-      <ul
-        id="slide-out"
-        className="sidenav "
-        ref={sidenav => {
-          this.sidenav = sidenav;
-        }}
-      >
+      <React.Fragment>
         <li className="sidenav-close">
           <Link to="/">Base</Link>
         </li>
@@ -41,7 +31,7 @@ export default class Sidenav extends PureComponent {
             <span className="new badge" />
           </a>
         </li>
-      </ul>
+      </React.Fragment>
     );
   }
 }
