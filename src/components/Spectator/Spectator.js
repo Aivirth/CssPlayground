@@ -60,14 +60,16 @@ class Spectator extends PureComponent {
     console.log({ output });
 
     return (
-      <div>
-        Spectator Data : <br />
+      <ul className="collection with-header">
+        <li className="collection-header">
+          <h4>Spectator Data</h4>
+        </li>
         {output.map((el, index) => (
-          <span key={`css_property_${index}`}>
+          <li className="collection-item" key={`css_property_${index}`}>
             <strong>{el[0]}</strong> : {el[1]}; <br />
-          </span>
+          </li>
         ))}
-      </div>
+      </ul>
     );
   }
 }

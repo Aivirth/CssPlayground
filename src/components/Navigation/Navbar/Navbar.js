@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import BottomModal from "../../../containers/Layout/BottomModal/BottomModal";
 import Spectator from "../../Spectator/Spectator";
 import Sidebar from "../../../containers/Layout/Sidebar/Sidebar";
 import Sidenav from "../../Navigation/Sidenav/Sidenav";
