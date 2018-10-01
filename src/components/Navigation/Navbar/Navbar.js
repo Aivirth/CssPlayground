@@ -16,14 +16,15 @@ export default () => {
             </Sidebar>
           </li>
           <li>
-            <BottomModal
+            <Sidebar
               buttonText="Styles"
-              id="bottom"
+              id="styles_sidebar"
               header="Modal header test"
+              icon="developer_mode"
               additionalBtnClasses="light-blue lighten-2"
             >
               <Spectator />
-            </BottomModal>
+            </Sidebar>
           </li>
           <li>
             <Link

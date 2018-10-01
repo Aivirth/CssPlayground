@@ -28,6 +28,7 @@ export default class BottomModal extends PureComponent {
           ref={sidenav => {
             this.sidenav = sidenav;
           }}
+          style={{ color: "#000000" }}
         >
           {this.props.children}
         </ul>
