@@ -24,11 +24,10 @@ export default class BottomModal extends PureComponent {
 
         <ul
           id={`${id}`}
-          className="sidenav "
+          className="sidenav grey-text text-darken-4"
           ref={sidenav => {
             this.sidenav = sidenav;
           }}
-          style={{ color: "#000000" }}
         >
           {this.props.children}
         </ul>

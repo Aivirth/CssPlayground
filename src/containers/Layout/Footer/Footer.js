@@ -44,7 +44,10 @@ export default () => {
           © 2014 Copyright Text
           <a className="grey-text text-lighten-4 right" href="#!">
             Github
-            <FontAwesomeIcon icon="external-link-alt" />
+            <FontAwesomeIcon
+              icon="external-link-alt"
+              style={{ marginLeft: "5px" }}
+            />
           </a>
         </div>
       </div>
