@@ -42,7 +42,8 @@ export default () => {
         <div className="container">
           © 2014 Copyright Text
           <a className="grey-text text-lighten-4 right" href="#!">
-            More Links
+            Github
+            <i class="tiny material-icons">forward</i>
           </a>
         </div>
       </div>
