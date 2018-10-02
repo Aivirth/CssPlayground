@@ -6,11 +6,16 @@ import Sidenav from "../../Navigation/Sidenav/Sidenav";
 
 export default () => {
   return (
-    <nav>
+    <nav className="blue darken-4">
       <div className="nav-wrapper container">
         <ul className="left">
           <li>
-            <Sidebar id="options_sidebar" icon="build" buttonText="Options">
+            <Sidebar
+              id="options_sidebar"
+              icon="build"
+              buttonText="Options"
+              additionalBtnClasses="cyan darken-1"
+            >
               <Sidenav />
             </Sidebar>
           </li>

@@ -14,7 +14,7 @@ export default class BottomModal extends PureComponent {
           onClick={e => {
             e.preventDefault();
           }}
-          className={`waves-effect waves-light orange darken-2 btn-small sidenav-trigger ${additionalBtnClasses}`}
+          className={`waves-effect waves-light  btn-small sidenav-trigger ${additionalBtnClasses}`}
           data-target={`${id}`}
           style={{ display: "inline-block" }}
         >
