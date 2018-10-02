@@ -19,9 +19,8 @@ class BorderRadius extends PureComponent {
     const updatedProperty = {
       ...this.props.borderRadius
     };
-    console.log(updatedProperty);
+
     const radiusDir = e.target.dataset.radiusdir;
-    console.log(radiusDir);
 
     updatedProperty[e.target.dataset.identifier][radiusDir] = +e.target.value;
     this.props.updtBorderRadius(updatedProperty);
@@ -50,7 +49,7 @@ class BorderRadius extends PureComponent {
             </div>
             <div className="collapsible-body">
               <Range
-                title="Border Top-Left (X radius)"
+                title="X Radius"
                 min="0"
                 max="300"
                 value={borderTopLeftRadius.radiusX}
@@ -60,7 +59,7 @@ class BorderRadius extends PureComponent {
                 radiusDir="radiusX"
               />
               <Range
-                title="Border Top-Left (Y radius)"
+                title="Y Radius"
                 min="0"
                 max="300"
                 value={borderTopLeftRadius.radiusY}
@@ -78,7 +77,7 @@ class BorderRadius extends PureComponent {
             </div>
             <div className="collapsible-body">
               <Range
-                title="Border Top-Right (X radius)"
+                title="X Radius"
                 min="0"
                 max="300"
                 value={borderTopRightRadius.radiusX}
@@ -88,7 +87,7 @@ class BorderRadius extends PureComponent {
                 radiusDir="radiusX"
               />
               <Range
-                title="Border Top-Right (Y radius)"
+                title="Y Radius"
                 min="0"
                 max="300"
                 value={borderTopRightRadius.radiusY}
@@ -106,7 +105,7 @@ class BorderRadius extends PureComponent {
             </div>
             <div className="collapsible-body">
               <Range
-                title="Border Bottom-Right (X radius)"
+                title="X Radius"
                 min="0"
                 max="300"
                 value={borderBottomRightRadius.radiusX}
@@ -116,7 +115,7 @@ class BorderRadius extends PureComponent {
                 radiusDir="radiusX"
               />
               <Range
-                title="Border Bottom-Right (Y radius)"
+                title="Y Radius"
                 min="0"
                 max="300"
                 value={borderBottomRightRadius.radiusY}
@@ -134,7 +133,7 @@ class BorderRadius extends PureComponent {
             </div>
             <div className="collapsible-body">
               <Range
-                title="Border Bottom-Left (X radius)"
+                title="X Radius"
                 min="0"
                 max="300"
                 value={borderBottomLeftRadius.radiusX}
@@ -144,7 +143,7 @@ class BorderRadius extends PureComponent {
                 radiusDir="radiusX"
               />
               <Range
-                title="Border Bottom-Left (Y radius)"
+                title="Y Radius"
                 min="0"
                 max="300"
                 value={borderBottomLeftRadius.radiusY}

@@ -1,31 +1,14 @@
 import React, { Component } from "react";
 
 import { connect } from "react-redux";
-import { getStyles } from "../../Redux/actions/actorActions";
+import { getStyles, updtStyleCssText } from "../../Redux/actions/actorActions";
 
 class Actor extends Component {
-  componentDidMount() {
-    this.props.getStyles();
-    // console.log(this.props);
-  }
-
-  hexToRgb = hex => {
-    let r = null;
-    // long version
-    r = hex.match(/^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i);
-    if (r) {
-      return r.slice(1, 4).map(x => parseInt(x, 16));
-    }
-    // short version
-    r = hex.match(/^#([0-9a-f])([0-9a-f])([0-9a-f])$/i);
-    if (r) {
-      return r.slice(1, 4).map(x => 0x11 * parseInt(x, 16));
-    }
-
-    return r;
+  state = {
+    styles: {}
   };
 
-  render() {
+  mapStateToStyles = () => {
     const borderStyle = this.props.borderStyle;
     const baseStyle = this.props.baseStyle;
     const borderRadiusRaw = this.props.borderRadius;
@@ -35,13 +18,7 @@ class Actor extends Component {
     hexColor.push(boxShadow.opacity);
     const computedBoxShadowColor = hexColor.join(",");
 
-    const borderRadius = {};
-    for (const key in borderRadiusRaw) {
-      let combinedRadii = `${borderRadiusRaw[key].radiusX}px ${
-        borderRadiusRaw[key].radiusY
-      }px`;
-      borderRadius[key] = combinedRadii;
-    }
+    const borderRadius = this.formatBorderRadius(borderRadiusRaw);
 
     const styles = {
       backgroundColor: baseStyle.backgroundColor,
@@ -65,7 +42,51 @@ class Actor extends Component {
       }px rgba(${computedBoxShadowColor}) ${boxShadow.inset}`
     };
 
-    return <div id="Actor" style={styles} />;
+    return styles;
+  };
+
+  componentDidMount() {
+    this.props.getStyles();
+  }
+
+  hexToRgb = hex => {
+    let r = null;
+    // long version
+    r = hex.match(/^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i);
+    if (r) {
+      return r.slice(1, 4).map(x => parseInt(x, 16));
+    }
+    // short version
+    r = hex.match(/^#([0-9a-f])([0-9a-f])([0-9a-f])$/i);
+    if (r) {
+      return r.slice(1, 4).map(x => 0x11 * parseInt(x, 16));
+    }
+
+    return r;
+  };
+
+  formatBorderRadius = borderRadiusRaw => {
+    const formattedBorderRadius = {};
+    for (const key in borderRadiusRaw) {
+      let combinedRadii = `${borderRadiusRaw[key].radiusX}px ${
+        borderRadiusRaw[key].radiusY
+      }px`;
+      formattedBorderRadius[key] = combinedRadii;
+    }
+
+    return formattedBorderRadius;
+  };
+
+  render() {
+    return (
+      <div
+        ref={domActor => {
+          this.domActor = domActor;
+        }}
+        id="Actor"
+        style={this.mapStateToStyles()}
+      />
+    );
   }
 }
 
@@ -73,10 +94,11 @@ const mapStateToProps = state => ({
   baseStyle: state.actor.baseStyle,
   borderStyle: state.actor.borderStyle,
   boxShadow: state.actor.boxShadow,
-  borderRadius: state.actor.borderRadius
+  borderRadius: state.actor.borderRadius,
+  computedStyleCssText: state.actor.computedStyleCssText
 });
 
 export default connect(
   mapStateToProps,
-  { getStyles }
+  { getStyles, updtStyleCssText }
 )(Actor);
