@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 export default () => {
@@ -19,7 +19,7 @@ export default () => {
       {/* <li className="active">
                   <Link to="/temp">lorem</Link>
                 </li> */}
-      <li className="bold">
+      {/* <li className="bold">
         <a href="/" className="waves-effect waves-teal">
           Lorem
         </a>
@@ -29,7 +29,7 @@ export default () => {
           Lorem
           <span className="new badge" />
         </a>
-      </li>
+      </li> */}
     </React.Fragment>
   );
 };

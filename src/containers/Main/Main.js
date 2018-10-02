@@ -8,8 +8,6 @@ import Borders from "../../components/Options/Borders/Borders";
 import Base from "../../components/Options/Base/Base";
 import NotFound from "../../components/Pages/NotFound";
 
-import Test from "../../components/Test/Test";
-
 export default () => {
   return (
     <main className="row" style={{ marginBottom: "0px" }}>
@@ -31,7 +29,6 @@ export default () => {
         }}
       >
         <Actor />
-        <Test />
       </div>
     </main>
   );

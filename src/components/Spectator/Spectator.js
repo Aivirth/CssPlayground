@@ -46,18 +46,11 @@ class Spectator extends PureComponent {
 
   render() {
     const currentActorStyles = { ...this.state.actorStyles };
-    // for (let property in currentActorStyles) {
-    //   output.push(
-    //     `<strong>${property}</strong>: ${currentActorStyles[property]} <br/>`
-    //   );
-    // }
 
     let output = Object.keys(currentActorStyles).map(key => [
       key,
       currentActorStyles[key]
     ]);
-
-    console.log({ output });
 
     return (
       <ul className="collection with-header">
