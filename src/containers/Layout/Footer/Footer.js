@@ -1,4 +1,5 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default () => {
   return (
@@ -43,7 +44,7 @@ export default () => {
           © 2014 Copyright Text
           <a className="grey-text text-lighten-4 right" href="#!">
             Github
-            <i class="tiny material-icons">forward</i>
+            <FontAwesomeIcon icon="external-link-alt" />
           </a>
         </div>
       </div>

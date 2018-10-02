@@ -4,11 +4,16 @@ import Main from "./containers/Main/Main";
 import Footer from "./containers/Layout/Footer/Footer";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+
 import { Provider } from "react-redux";
 import store from "./Redux/store";
 
 import About from "./components/Pages/About";
 import NotFound from "./components/Pages/NotFound";
+
+library.add(faExternalLinkAlt);
 
 class App extends Component {
   render() {
