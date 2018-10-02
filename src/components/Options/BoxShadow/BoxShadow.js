@@ -52,68 +52,75 @@ class BoxShadow extends PureComponent {
     return (
       <div>
         <h4>Box Shadows</h4>
-        <Range
-          title="Vertical Offset"
-          min="-100"
-          max="100"
-          value={verticalOffset}
-          id="vertical_offset"
-          changed={this.onRangeChange}
-          identifier="verticalOffset"
-        />
-        <Range
-          title="Horizontal Offset"
-          min="-100"
-          max="100"
-          value={horizontalOffset}
-          id="horizontal_offset"
-          changed={this.onRangeChange}
-          identifier="horizontalOffset"
-        />
-        <Range
-          title="Blur"
-          min="0"
-          max="200"
-          value={blur}
-          id="blur"
-          changed={this.onRangeChange}
-          identifier="blur"
-        />
-        <Range
-          title="Spread"
-          min="0"
-          max="75"
-          value={spread}
-          step="1"
-          id="spread"
-          changed={this.onRangeChange}
-          identifier="spread"
-        />
-        <Switch
-          identifier="inset"
-          value={inset}
-          changed={this.onSwitchChange}
-        />
+        <div className="section">
+          <Range
+            title="Vertical Offset"
+            min="-100"
+            max="100"
+            value={verticalOffset}
+            id="vertical_offset"
+            changed={this.onRangeChange}
+            identifier="verticalOffset"
+          />
+          <Range
+            title="Horizontal Offset"
+            min="-100"
+            max="100"
+            value={horizontalOffset}
+            id="horizontal_offset"
+            changed={this.onRangeChange}
+            identifier="horizontalOffset"
+          />
+          <Range
+            title="Blur"
+            min="0"
+            max="200"
+            value={blur}
+            id="blur"
+            changed={this.onRangeChange}
+            identifier="blur"
+          />
+          <Range
+            title="Spread"
+            min="0"
+            max="75"
+            value={spread}
+            step="1"
+            id="spread"
+            changed={this.onRangeChange}
+            identifier="spread"
+          />
+        </div>
         <hr />
-        <div style={{ marginTop: "15px", marginBottom: "15px" }} />
 
-        <ColorPicker
-          identifier="color"
-          changed={this.onColorChange}
-          value={color}
-          id="color"
-        />
+        <div className="section">
+          <Switch
+            identifier="inset"
+            value={inset}
+            changed={this.onSwitchChange}
+          />
+        </div>
+        <hr />
 
-        <Range
-          title="Opacity"
-          min="0"
-          max="1"
-          value={opacity}
-          step="0.1"
-          id="opacity"
-          changed={this.onRangeChange}
-          identifier="opacity"
-        />
+        <div className="section">
+          <ColorPicker
+            identifier="color"
+            changed={this.onColorChange}
+            value={color}
+            id="color"
+          />
+
+          <Range
+            title="Opacity"
+            min="0"
+            max="1"
+            value={opacity}
+            step="0.1"
+            id="opacity"
+            changed={this.onRangeChange}
+            identifier="opacity"
+          />
+        </div>
       </div>
     );
   }
