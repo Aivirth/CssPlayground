@@ -24,7 +24,10 @@ class App extends Component {
             }}
           >
             <Navbar />
-            <div className="container" style={{ flex: "1 0 auto" }}>
+            <div
+              className="container"
+              style={{ flex: "1 0 auto", display: "flex" }}
+            >
               <Switch>
                 <Route exact path="/about" component={About} />
                 <Route path="/" component={Main} />

@@ -10,7 +10,10 @@ import NotFound from "../../components/Pages/NotFound";
 
 export default () => {
   return (
-    <main className="row" style={{ marginBottom: "0px" }}>
+    <main
+      className="row"
+      style={{ marginBottom: "0px", flex: "0 0 100%", display: "flex" }}
+    >
       <div className="col s6">
         <Switch>
           <Route exact path="/" component={Base} />
@@ -23,7 +26,7 @@ export default () => {
       <div
         className="col s6"
         style={{
-          paddingTop: "5rem"
+          display: "flex"
         }}
       >
         <Actor />
