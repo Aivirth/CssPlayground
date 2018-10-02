@@ -23,8 +23,6 @@ export default () => {
       <div
         className="col s6"
         style={{
-          // display: "flex",
-          // height: "calc(100vh - 64px)"
           paddingTop: "5rem"
         }}
       >

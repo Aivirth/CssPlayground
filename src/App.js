@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "./components/Navigation/Navbar/Navbar";
 import Main from "./containers/Main/Main";
+import Footer from "./containers/Layout/Footer/Footer";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { Provider } from "react-redux";
@@ -14,15 +15,23 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <div className="App">
+          <div
+            className="App"
+            style={{
+              display: "flex",
+              minHeight: "100vh",
+              flexDirection: "column"
+            }}
+          >
             <Navbar />
-            <div className="container">
+            <div className="container" style={{ flex: "1 0 auto" }}>
               <Switch>
                 <Route exact path="/about" component={About} />
                 <Route path="/" component={Main} />
                 <Route component={NotFound} />
               </Switch>
             </div>
+            <Footer />
           </div>
         </Router>
       </Provider>
