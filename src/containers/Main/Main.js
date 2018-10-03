@@ -12,9 +12,14 @@ export default () => {
   return (
     <main
       className="row"
-      style={{ marginBottom: "0px", flex: "0 0 100%", display: "flex" }}
+      style={{
+        marginBottom: "0px",
+        flex: "0 0 100%",
+        display: "flex",
+        flexWrap: "wrap"
+      }}
     >
-      <div className="col s6">
+      <div className="col m6">
         <Switch>
           <Route exact path="/" component={Base} />
           <Route exact path="/box-shadow" component={BoxShadow} />
@@ -24,7 +29,7 @@ export default () => {
         </Switch>
       </div>
       <div
-        className="col s6"
+        className="col m6"
         style={{
           display: "flex"
         }}
