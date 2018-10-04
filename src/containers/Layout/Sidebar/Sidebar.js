@@ -10,7 +10,7 @@ export default class BottomModal extends PureComponent {
     return (
       <React.Fragment>
         <a
-          href=""
+          href="#/"
           onClick={e => {
             e.preventDefault();
           }}
