@@ -13,42 +13,52 @@ class BoxShadow extends PureComponent {
     this.props.getStyles();
   }
 
-  onSwitchChange = e => {
-    const updatedProperty = {
-      ...this.props.boxShadow
-    };
-    const checked = e.target.checked ? "inset" : "";
+  // onSwitchChange = e => {
+  //   const updatedProperty = {
+  //     ...this.props.boxShadow
+  //   };
+  //   const checked = e.target.checked ? "inset" : "";
 
-    updatedProperty[e.target.dataset.identifier] = checked;
-    this.props.updtBoxShadow(updatedProperty);
-  };
+  //   updatedProperty[e.target.dataset.identifier] = checked;
+  //   this.props.updtBoxShadow(updatedProperty);
+  // };
 
-  onRangeChange = e => {
-    const updatedProperty = {
-      ...this.props.boxShadow
-    };
-    updatedProperty[e.target.dataset.identifier] = +e.target.value;
-    this.props.updtBoxShadow(updatedProperty);
-  };
+  // onRangeChange = e => {
+  //   const updatedProperty = {
+  //     ...this.props.boxShadow
+  //   };
+  //   updatedProperty[e.target.dataset.identifier] = +e.target.value;
+  //   this.props.updtBoxShadow(updatedProperty);
+  // };
 
-  onColorChange = e => {
-    const updatedProperty = {
-      ...this.props.boxShadow
-    };
-    updatedProperty[e.target.dataset.identifier] = e.target.value;
-    this.props.updtBoxShadow(updatedProperty);
-  };
+  // onColorChange = e => {
+  //   const updatedProperty = {
+  //     ...this.props.boxShadow
+  //   };
+  //   updatedProperty[e.target.dataset.identifier] = e.target.value;
+  //   this.props.updtBoxShadow(updatedProperty);
+  // };
 
   render() {
-    const {
-      verticalOffset,
-      horizontalOffset,
-      blur,
-      spread,
-      color,
-      opacity,
-      inset
-    } = this.props.boxShadow;
+    // const {
+    //   verticalOffset,
+    //   horizontalOffset,
+    //   blur,
+    //   spread,
+    //   color,
+    //   opacity,
+    //   inset
+    // } = this.props.boxShadow;
+
+    let elementsFromPropsAsArray = [];
+
+    for (let key in this.props.boxShadow) {
+      elementsFromPropsAsArray.push({
+        id: key,
+        config: this.props.boxShadow[key]
+      });
+    }
+
     return (
       <div>
         <h4>Box Shadows</h4>
