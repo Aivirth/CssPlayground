@@ -19,7 +19,16 @@ class Borders extends PureComponent {
       ...updatedState[elementKey]
     };
 
-    updatedProperty.value = +e.target.value;
+    if (
+      e.target.hasAttribute("type") &&
+      e.target.hasAttribute("min") &&
+      e.target.hasAttribute("max")
+    ) {
+      updatedProperty.value = +e.target.value;
+    } else {
+      updatedProperty.value = e.target.value;
+    }
+
     updatedState[elementKey] = updatedProperty;
 
     this.props.updtBorders(updatedState);
