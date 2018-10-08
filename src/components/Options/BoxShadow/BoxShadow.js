@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import Range from "../../UI/Input/Range/Range";
 import Switch from "../../UI/Input/Switch/Switch";
 import ColorPicker from "../../UI/Input/ColorPicker/ColorPicker";
+import Input from "../../UI/Input/Input";
 
 import { connect } from "react-redux";
 import { getStyles, updtBoxShadow } from "../../../Redux/actions/actorActions";
@@ -13,43 +14,21 @@ class BoxShadow extends PureComponent {
     this.props.getStyles();
   }
 
-  // onSwitchChange = e => {
-  //   const updatedProperty = {
-  //     ...this.props.boxShadow
-  //   };
-  //   const checked = e.target.checked ? "inset" : "";
+  onInputChangeHandler = (e, elementKey) => {
+    const updatedState = {
+      ...this.props.boxShadow
+    };
+    const updatedProperty = {
+      ...updatedState[elementKey]
+    };
 
-  //   updatedProperty[e.target.dataset.identifier] = checked;
-  //   this.props.updtBoxShadow(updatedProperty);
-  // };
+    updatedProperty.value = e.target.value;
+    updatedState[elementKey] = updatedProperty;
 
-  // onRangeChange = e => {
-  //   const updatedProperty = {
-  //     ...this.props.boxShadow
-  //   };
-  //   updatedProperty[e.target.dataset.identifier] = +e.target.value;
-  //   this.props.updtBoxShadow(updatedProperty);
-  // };
-
-  // onColorChange = e => {
-  //   const updatedProperty = {
-  //     ...this.props.boxShadow
-  //   };
-  //   updatedProperty[e.target.dataset.identifier] = e.target.value;
-  //   this.props.updtBoxShadow(updatedProperty);
-  // };
+    this.props.updtBoxShadow(updatedState);
+  };
 
   render() {
-    // const {
-    //   verticalOffset,
-    //   horizontalOffset,
-    //   blur,
-    //   spread,
-    //   color,
-    //   opacity,
-    //   inset
-    // } = this.props.boxShadow;
-
     let elementsFromPropsAsArray = [];
 
     for (let key in this.props.boxShadow) {
@@ -63,73 +42,27 @@ class BoxShadow extends PureComponent {
       <div>
         <h4>Box Shadows</h4>
         <div className="section">
-          <Range
-            title="Vertical Offset"
-            min="-100"
-            max="100"
-            value={verticalOffset}
-            id="vertical_offset"
-            changed={this.onRangeChange}
-            identifier="verticalOffset"
-          />
-          <Range
-            title="Horizontal Offset"
-            min="-100"
-            max="100"
-            value={horizontalOffset}
-            id="horizontal_offset"
-            changed={this.onRangeChange}
-            identifier="horizontalOffset"
-          />
-          <Range
-            title="Blur"
-            min="0"
-            max="200"
-            value={blur}
-            id="blur"
-            changed={this.onRangeChange}
-            identifier="blur"
-          />
-          <Range
-            title="Spread"
-            min="0"
-            max="75"
-            value={spread}
-            step="1"
-            id="spread"
-            changed={this.onRangeChange}
-            identifier="spread"
-          />
-        </div>
-        <hr />
+          {elementsFromPropsAsArray.map(element => {
+            const {
+              htmlProperties,
+              elementConfig,
+              value,
+              dataSets,
+              inputType
+            } = element.config;
 
-        <div className="section">
-          <Switch
-            identifier="inset"
-            value={inset}
-            changed={this.onSwitchChange}
-          />
-        </div>
-        <hr />
-
-        <div className="section">
-          <ColorPicker
-            identifier="color"
-            changed={this.onColorChange}
-            value={color}
-            id="color"
-          />
-
-          <Range
-            title="Opacity"
-            min="0"
-            max="1"
-            value={opacity}
-            step="0.1"
-            id="opacity"
-            changed={this.onRangeChange}
-            identifier="opacity"
-          />
+            return (
+              <Input
+                key={element.id}
+                htmlProperties={htmlProperties}
+                value={value}
+                label={elementConfig.label}
+                dataSets={dataSets}
+                inputType={inputType}
+                changed={event => this.onInputChangeHandler(event, element.id)}
+              />
+            );
+          })}
         </div>
       </div>
     );

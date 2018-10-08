@@ -2,7 +2,7 @@ import React from "react";
 
 export default props => {
   const {
-    title,
+    label,
     min,
     max,
     id,
@@ -16,7 +16,7 @@ export default props => {
   return (
     <React.Fragment>
       <label>
-        {title}: <strong>{value}</strong>
+        {label}: <strong>{value}</strong>
       </label>
       <input
         type="range"

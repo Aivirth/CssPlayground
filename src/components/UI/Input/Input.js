@@ -8,10 +8,11 @@ export default props => {
   const {
     value,
     inputType,
-    elementConfig,
+    label,
     dataSets,
     htmlProperties,
-    changed
+    changed,
+    options
   } = props;
 
   let inputElement = null;
@@ -22,9 +23,9 @@ export default props => {
         <Range
           value={value}
           htmlProperties={htmlProperties}
-          label={elementConfig.label}
+          label={label}
           dataSets={dataSets}
-          onChange={changed}
+          changed={changed}
         />
       );
       break;
@@ -34,33 +35,37 @@ export default props => {
         <ColorPicker
           value={value}
           htmlProperties={htmlProperties}
-          label={elementConfig.label}
+          label={label}
           dataSets={dataSets}
-          onChange={changed}
+          changed={changed}
         />
       );
       break;
 
     case "select":
-      <Select
-        value={value}
-        htmlProperties={htmlProperties}
-        dataSets={dataSets}
-        label={elementConfig.label}
-        values={elementConfig.options}
-        onChange={changed}
-      />;
+      inputElement = (
+        <Select
+          value={value}
+          htmlProperties={htmlProperties}
+          dataSets={dataSets}
+          label={label}
+          values={options}
+          changed={changed}
+        />
+      );
 
       break;
 
     case "switch":
-      <Switch
-        value={value}
-        htmlProperties={htmlProperties}
-        dataSets={dataSets}
-        label={elementConfig.label}
-        onChange={changed}
-      />;
+      inputElement = (
+        <Switch
+          value={value}
+          htmlProperties={htmlProperties}
+          dataSets={dataSets}
+          label={label}
+          changed={changed}
+        />
+      );
 
       break;
 
