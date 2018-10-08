@@ -11,7 +11,6 @@ class Base extends PureComponent {
 
   componentDidMount() {
     this.props.getStyles();
-    console.log(this.props);
   }
 
   onInputChangeHandler = (e, elementKey) => {
@@ -40,7 +39,7 @@ class Base extends PureComponent {
 
     return (
       <div>
-        <h4>Box Shadows</h4>
+        <h4>Base Styles</h4>
         <div className="section">
           {elementsFromPropsAsArray.map(element => {
             const {
