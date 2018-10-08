@@ -1,7 +1,5 @@
 import React, { PureComponent } from "react";
-import Range from "../../UI/Input/Range/Range";
-import ColorPicker from "../../UI/Input/ColorPicker/ColorPicker";
-import Select from "../../UI/Input/Select/Select";
+import Input from "../../UI/Input/Input";
 
 import { connect } from "react-redux";
 import { getStyles, updtBorders } from "../../../Redux/actions/actorActions";
@@ -13,71 +11,64 @@ class Borders extends PureComponent {
     this.props.getStyles();
   }
 
-  onRangeChange = e => {
+  onInputChangeHandler = (e, elementKey) => {
+    const updatedState = {
+      ...this.props.borders
+    };
     const updatedProperty = {
-      ...this.props.borderStyle
+      ...updatedState[elementKey]
     };
 
-    updatedProperty[e.target.dataset.identifier] = +e.target.value;
-    this.props.updtBorders(updatedProperty);
-  };
+    updatedProperty.value = e.target.value;
+    updatedState[elementKey] = updatedProperty;
 
-  onSelectChange = e => {
-    const updatedProperty = {
-      ...this.props.borderStyle
-    };
-
-    updatedProperty.activeBorderStyle = e.target.value;
-
-    this.props.updtBorders(updatedProperty);
-  };
-
-  onColorChange = e => {
-    const updatedProperty = {
-      ...this.props.borderStyle
-    };
-    updatedProperty[e.target.dataset.identifier] = e.target.value;
-    this.props.updtBorders(updatedProperty);
+    this.props.updtBorders(updatedState);
   };
 
   render() {
-    const { borderWidth, borderStyle, borderColor } = this.props.borderStyle;
+    let elementsFromPropsAsArray = [];
+
+    for (let key in this.props.borders) {
+      elementsFromPropsAsArray.push({
+        id: key,
+        config: this.props.borders[key]
+      });
+    }
 
     return (
       <div>
         <h4>Borders</h4>
-        <Range
-          title="Borders Width"
-          min="0"
-          max="20"
-          value={borderWidth}
-          id="borders_width"
-          changed={this.onRangeChange}
-          identifier="borderWidth"
-        />
+        <div className="section">
+          {elementsFromPropsAsArray.map(element => {
+            const {
+              htmlProperties,
+              elementConfig,
+              value,
+              dataSets,
+              inputType
+            } = element.config;
 
-        <Select
-          title="Borders Style"
-          values={borderStyle}
-          changed={this.onSelectChange}
-          identifier="borderStyle"
-        />
-
-        <div style={{ marginTop: "15px", marginBottom: "15px" }} />
-
-        <ColorPicker
-          identifier="borderColor"
-          changed={this.onColorChange}
-          value={borderColor}
-          id="bordersColorPicker"
-        />
+            return (
+              <Input
+                key={element.id}
+                htmlProperties={htmlProperties}
+                elementConfig={elementConfig}
+                value={value}
+                label={elementConfig.label}
+                dataSets={dataSets}
+                inputType={inputType}
+                changed={event => this.onInputChangeHandler(event, element.id)}
+              />
+            );
+          })}
+        </div>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  borderStyle: state.actor.borderStyle
+  borders: state.actor.borders
 });
 
 export default connect(

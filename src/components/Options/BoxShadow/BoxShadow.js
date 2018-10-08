@@ -1,7 +1,4 @@
 import React, { PureComponent } from "react";
-import Range from "../../UI/Input/Range/Range";
-import Switch from "../../UI/Input/Switch/Switch";
-import ColorPicker from "../../UI/Input/ColorPicker/ColorPicker";
 import Input from "../../UI/Input/Input";
 
 import { connect } from "react-redux";

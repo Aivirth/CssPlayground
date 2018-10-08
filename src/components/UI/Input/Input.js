@@ -12,7 +12,7 @@ export default props => {
     dataSets,
     htmlProperties,
     changed,
-    options
+    elementConfig
   } = props;
 
   let inputElement = null;
@@ -49,7 +49,7 @@ export default props => {
           htmlProperties={htmlProperties}
           dataSets={dataSets}
           label={label}
-          values={options}
+          elementConfig={elementConfig}
           changed={changed}
         />
       );

@@ -1,7 +1,5 @@
 import React, { PureComponent } from "react";
 import Input from "../../UI/Input/Input";
-import Range from "../../UI/Input/Range/Range";
-import ColorPicker from "../../UI/Input/ColorPicker/ColorPicker";
 
 import { connect } from "react-redux";
 import { getStyles, updtBase } from "../../../Redux/actions/actorActions";
