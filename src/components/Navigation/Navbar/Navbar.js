@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Spectator from "../../Spectator/Spectator";
+// import Spectator from "../../Spectator/Spectator";
 import Sidebar from "../../../containers/Layout/Sidebar/Sidebar";
 import Sidenav from "../../Navigation/Sidenav/Sidenav";
 
@@ -19,6 +19,7 @@ export default () => {
               <Sidenav />
             </Sidebar>
           </li>
+
           <li>
             <Sidebar
               buttonText="Styles"
@@ -27,9 +28,11 @@ export default () => {
               icon="developer_mode"
               additionalBtnClasses="light-blue lighten-2"
             >
-              <Spectator />
+              {/* <Spectator /> */}
+              blank
             </Sidebar>
           </li>
+
           <li>
             <Link
               to="/"

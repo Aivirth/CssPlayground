@@ -28,7 +28,7 @@ class App extends Component {
               flexDirection: "column"
             }}
           >
-            {/* <Navbar /> */}
+            <Navbar />
             <div
               className="container"
               style={{ flex: "1 0 auto", display: "flex" }}
