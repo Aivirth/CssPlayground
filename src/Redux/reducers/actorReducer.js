@@ -7,63 +7,6 @@ import {
   UPDT_STYLECSSTEXT
 } from "../actions/types";
 
-// const initialState = {
-//   baseStyle: {
-//     width: 200,
-//     height: 200,
-//     margin: "auto",
-//     backgroundColor: "#00bcd4"
-//   },
-
-//   computedStyleCssText: {},
-
-//   borderStyle: {
-//     borderWidth: 1,
-//     borderStyle: [
-//       { name: "Solid", value: "solid" },
-//       { name: "None", value: "none" },
-//       { name: "Hidden", value: "hidden" },
-//       { name: "Dotted", value: "dotted" },
-//       { name: "Dashed", value: "dashed" },
-//       { name: "Double", value: "double" },
-//       { name: "Groove", value: "groove" },
-//       { name: "Ridge", value: "ridge" },
-//       { name: "Inset", value: "inset" },
-//       { name: "Outset", value: "outset" }
-//     ],
-//     activeBorderStyle: "solid",
-//     borderColor: "#ffb900"
-//   },
-//   borderRadius: {
-//     borderTopLeftRadius: {
-//       radiusX: 5,
-//       radiusY: 2
-//     },
-//     borderTopRightRadius: {
-//       radiusX: 5,
-//       radiusY: 4
-//     },
-//     borderBottomLeftRadius: {
-//       radiusX: 5,
-//       radiusY: 7
-//     },
-//     borderBottomRightRadius: {
-//       radiusX: 5,
-//       radiusY: 6
-//     }
-//   },
-
-//   boxShadow: {
-//     verticalOffset: 10,
-//     horizontalOffset: 10,
-//     blur: 3,
-//     spread: 5,
-//     color: "#b71c1c",
-//     opacity: 0.8,
-//     inset: ""
-//   }
-// };
-
 const initialState = {
   computedStyleCssText: {},
 

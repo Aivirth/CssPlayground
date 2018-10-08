@@ -69,6 +69,10 @@ export default props => {
 
       break;
 
+    case "":
+      inputElement = <span style={{ display: "none" }} />;
+      break;
+
     default:
       inputElement = <div>Input type not recognized by application</div>;
   }

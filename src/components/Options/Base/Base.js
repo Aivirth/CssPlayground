@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import Input from "../../UI/Input/Input";
 import Range from "../../UI/Input/Range/Range";
 import ColorPicker from "../../UI/Input/ColorPicker/ColorPicker";
 
@@ -10,56 +11,59 @@ class Base extends PureComponent {
 
   componentDidMount() {
     this.props.getStyles();
+    console.log(this.props);
   }
 
-  onRangeChange = e => {
-    const updatedProperty = {
+  onInputChangeHandler = (e, elementKey) => {
+    const updatedState = {
       ...this.props.baseStyle
     };
-
-    updatedProperty[e.target.dataset.identifier] = +e.target.value;
-    this.props.updtBase(updatedProperty);
-  };
-
-  onColorChange = e => {
     const updatedProperty = {
-      ...this.props.baseStyle
+      ...updatedState[elementKey]
     };
-    updatedProperty[e.target.dataset.identifier] = e.target.value;
-    this.props.updtBase(updatedProperty);
+
+    updatedProperty.value = e.target.value;
+    updatedState[elementKey] = updatedProperty;
+
+    this.props.updtBase(updatedState);
   };
 
   render() {
-    const { width, height, backgroundColor } = this.props.baseStyle;
+    let elementsFromPropsAsArray = [];
+
+    for (let key in this.props.baseStyle) {
+      elementsFromPropsAsArray.push({
+        id: key,
+        config: this.props.baseStyle[key]
+      });
+    }
+
     return (
       <div>
-        <h4>Base Styles</h4>
-        <Range
-          title="Width"
-          min="0"
-          max="500"
-          value={width}
-          id="box_width"
-          changed={this.onRangeChange}
-          identifier="width"
-        />
+        <h4>Box Shadows</h4>
+        <div className="section">
+          {elementsFromPropsAsArray.map(element => {
+            const {
+              htmlProperties,
+              elementConfig,
+              value,
+              dataSets,
+              inputType
+            } = element.config;
 
-        <Range
-          title="Height"
-          min="0"
-          max="500"
-          value={height}
-          id="box_height"
-          changed={this.onRangeChange}
-          identifier="height"
-        />
-
-        <ColorPicker
-          identifier="backgroundColor"
-          changed={this.onColorChange}
-          value={backgroundColor}
-          id="baseColorPicker"
-        />
+            return (
+              <Input
+                key={element.id}
+                htmlProperties={htmlProperties}
+                value={value}
+                label={elementConfig.label}
+                dataSets={dataSets}
+                inputType={inputType}
+                changed={event => this.onInputChangeHandler(event, element.id)}
+              />
+            );
+          })}
+        </div>
       </div>
     );
   }
