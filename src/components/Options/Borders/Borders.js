@@ -19,7 +19,7 @@ class Borders extends PureComponent {
       ...updatedState[elementKey]
     };
 
-    updatedProperty.value = e.target.value;
+    updatedProperty.value = +e.target.value;
     updatedState[elementKey] = updatedProperty;
 
     this.props.updtBorders(updatedState);

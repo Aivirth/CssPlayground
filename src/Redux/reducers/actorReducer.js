@@ -320,7 +320,7 @@ export default function(state = initialState, action) {
     case UPDT_BORDERS:
       return {
         ...state,
-        borderStyle: action.payload
+        borders: action.payload
       };
 
     case UPDT_BASE:
