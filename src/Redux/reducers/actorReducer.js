@@ -131,11 +131,11 @@ const initialState = {
         type: "range",
         step: "1",
         min: 0,
-        max: 20,
+        max: 300,
         name: "borderTopLeftRadius"
       },
       dataSets: {},
-      radii: { radiusX: 5, radiusY: 2 }
+      radii: { radiusX: 50, radiusY: 20 }
     },
 
     borderTopRightRadius: {
@@ -147,11 +147,11 @@ const initialState = {
         type: "range",
         step: "1",
         min: 0,
-        max: 20,
+        max: 300,
         name: "borderTopRightRadius"
       },
       dataSets: {},
-      radii: { radiusX: 5, radiusY: 4 }
+      radii: { radiusX: 50, radiusY: 40 }
     },
 
     borderBottomLeftRadius: {
@@ -163,11 +163,11 @@ const initialState = {
         type: "range",
         step: "1",
         min: 0,
-        max: 20,
+        max: 300,
         name: "borderBottomLeftRadius"
       },
       dataSets: {},
-      radii: { radiusX: 3, radiusY: 7 }
+      radii: { radiusX: 30, radiusY: 70 }
     },
 
     borderBottomRightRadius: {
@@ -179,11 +179,11 @@ const initialState = {
         type: "range",
         step: "1",
         min: 0,
-        max: 20,
+        max: 300,
         name: "Border Bottom Right Radius"
       },
       dataSets: {},
-      radii: { radiusX: 6, radiusY: 10 }
+      radii: { radiusX: 60, radiusY: 100 }
     }
   },
 
@@ -266,7 +266,7 @@ const initialState = {
     },
 
     opacity: {
-      value: 10,
+      value: 1,
       inputType: "range",
       elementConfig: {
         label: "Opacity"

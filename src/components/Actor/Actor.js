@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { connect } from "react-redux";
-import { getStyles, updtStyleCssText } from "../../Redux/actions/actorActions";
+import { getStyles } from "../../Redux/actions/actorActions";
 
 class Actor extends Component {
   state = {
@@ -9,25 +9,25 @@ class Actor extends Component {
   };
 
   mapStateToStyles = () => {
-    const borderStyle = this.props.borderStyle;
     const baseStyle = this.props.baseStyle;
+    const borders = this.props.borders;
     const borderRadiusRaw = this.props.borderRadius;
     const boxShadow = this.props.boxShadow;
 
-    const hexColor = this.hexToRgb(boxShadow.color);
-    hexColor.push(boxShadow.opacity);
+    const hexColor = this.hexToRgb(boxShadow.color.value);
+    hexColor.push(boxShadow.opacity.value);
     const computedBoxShadowColor = hexColor.join(",");
 
     const borderRadius = this.formatBorderRadius(borderRadiusRaw);
 
     const styles = {
-      backgroundColor: baseStyle.backgroundColor,
-      width: baseStyle.width + "px",
-      height: baseStyle.height + "px",
-      margin: baseStyle.margin,
+      backgroundColor: baseStyle.backgroundColor.value,
+      width: baseStyle.width.value + "px",
+      height: baseStyle.height.value + "px",
+      margin: baseStyle.margin.value,
 
-      border: `${borderStyle.borderWidth}px ${borderStyle.activeBorderStyle} ${
-        borderStyle.borderColor
+      border: `${borders.borderWidth.value}px ${borders.borderStyle.value} ${
+        borders.borderColor.value
       }`,
 
       borderTopLeftRadius: borderRadius.borderTopLeftRadius,
@@ -35,11 +35,11 @@ class Actor extends Component {
       borderBottomLeftRadius: borderRadius.borderBottomLeftRadius,
       borderBottomRightRadius: borderRadius.borderBottomRightRadius,
 
-      boxShadow: `${boxShadow.horizontalOffset}px ${
-        boxShadow.verticalOffset
-      }px ${boxShadow.blur}px ${
-        boxShadow.spread
-      }px rgba(${computedBoxShadowColor}) ${boxShadow.inset}`
+      boxShadow: `${boxShadow.horizontalOffset.value}px ${
+        boxShadow.verticalOffset.value
+      }px ${boxShadow.blur.value}px ${
+        boxShadow.spread.value
+      }px rgba(${computedBoxShadowColor}) ${boxShadow.inset.value}`
     };
 
     return styles;
@@ -68,8 +68,8 @@ class Actor extends Component {
   formatBorderRadius = borderRadiusRaw => {
     const formattedBorderRadius = {};
     for (const key in borderRadiusRaw) {
-      let combinedRadii = `${borderRadiusRaw[key].radiusX}px ${
-        borderRadiusRaw[key].radiusY
+      let combinedRadii = `${borderRadiusRaw[key].radii.radiusX}px ${
+        borderRadiusRaw[key].radii.radiusY
       }px`;
       formattedBorderRadius[key] = combinedRadii;
     }
@@ -92,13 +92,12 @@ class Actor extends Component {
 
 const mapStateToProps = state => ({
   baseStyle: state.actor.baseStyle,
-  borderStyle: state.actor.borderStyle,
+  borders: state.actor.borders,
   boxShadow: state.actor.boxShadow,
-  borderRadius: state.actor.borderRadius,
-  computedStyleCssText: state.actor.computedStyleCssText
+  borderRadius: state.actor.borderRadius
 });
 
 export default connect(
   mapStateToProps,
-  { getStyles, updtStyleCssText }
+  { getStyles }
 )(Actor);

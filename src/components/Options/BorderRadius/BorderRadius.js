@@ -52,7 +52,6 @@ class BorderRadius extends PureComponent {
             const {
               htmlProperties,
               elementConfig,
-              value,
               dataSets,
               inputType,
               radii

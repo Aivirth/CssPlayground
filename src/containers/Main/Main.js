@@ -34,7 +34,7 @@ export default () => {
           display: "flex"
         }}
       >
-        {/* <Actor /> */}
+        <Actor />
       </div>
     </main>
   );
