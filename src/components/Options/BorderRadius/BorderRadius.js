@@ -7,7 +7,7 @@ import {
   getStyles,
   updtBorderRadius
 } from "../../../Redux/actions/actorActions";
-import Range from "../../UI/Input/Range/Range";
+import Input from "../../UI/Input/Input";
 
 class BorderRadius extends PureComponent {
   componentDidMount() {
@@ -15,24 +15,29 @@ class BorderRadius extends PureComponent {
     M.Collapsible.init(this.collapse);
   }
 
-  onRangeChange = e => {
-    const updatedProperty = {
+  onInputChangeHandler = (e, elementKey, parentElement) => {
+    const updatedState = {
       ...this.props.borderRadius
     };
+    const updatedProperty = {
+      ...updatedState[parentElement].radii
+    };
 
-    const radiusDir = e.target.dataset.radiusdir;
+    updatedProperty[elementKey] = +e.target.value;
+    updatedState[parentElement].radii[elementKey] = updatedProperty[elementKey];
 
-    updatedProperty[e.target.dataset.identifier][radiusDir] = +e.target.value;
-    this.props.updtBorderRadius(updatedProperty);
+    this.props.updtBorderRadius(updatedState);
   };
 
   render() {
-    const {
-      borderTopLeftRadius,
-      borderTopRightRadius,
-      borderBottomLeftRadius,
-      borderBottomRightRadius
-    } = this.props.borderRadius;
+    let elementsFromPropsAsArray = [];
+
+    for (let key in this.props.borderRadius) {
+      elementsFromPropsAsArray.push({
+        id: key,
+        config: this.props.borderRadius[key]
+      });
+    }
 
     return (
       <div>
@@ -43,117 +48,53 @@ class BorderRadius extends PureComponent {
             this.collapse = collapse;
           }}
         >
-          <li className="active">
-            <div className="collapsible-header">
-              <strong>Border Top-Left</strong>
-            </div>
-            <div className="collapsible-body">
-              <Range
-                title="X Radius"
-                min="0"
-                max="300"
-                value={borderTopLeftRadius.radiusX}
-                id="btl__x_radius"
-                changed={this.onRangeChange}
-                identifier="borderTopLeftRadius"
-                radiusDir="radiusX"
-              />
-              <Range
-                title="Y Radius"
-                min="0"
-                max="300"
-                value={borderTopLeftRadius.radiusY}
-                id="btl__y_radius"
-                changed={this.onRangeChange}
-                identifier="borderTopLeftRadius"
-                radiusDir="radiusY"
-              />
-            </div>
-          </li>
+          {elementsFromPropsAsArray.map((element, index) => {
+            const {
+              htmlProperties,
+              elementConfig,
+              value,
+              dataSets,
+              inputType,
+              radii
+            } = element.config;
 
-          <li>
-            <div className="collapsible-header">
-              <strong>Border Top-Right</strong>
-            </div>
-            <div className="collapsible-body">
-              <Range
-                title="X Radius"
-                min="0"
-                max="300"
-                value={borderTopRightRadius.radiusX}
-                id="btr__x_radius"
-                changed={this.onRangeChange}
-                identifier="borderTopRightRadius"
-                radiusDir="radiusX"
-              />
-              <Range
-                title="Y Radius"
-                min="0"
-                max="300"
-                value={borderTopRightRadius.radiusY}
-                id="btr__y_radius"
-                changed={this.onRangeChange}
-                identifier="borderTopRightRadius"
-                radiusDir="radiusY"
-              />
-            </div>
-          </li>
+            const parsedRadii = [];
 
-          <li>
-            <div className="collapsible-header">
-              <strong>Border Bottom-Right</strong>
-            </div>
-            <div className="collapsible-body">
-              <Range
-                title="X Radius"
-                min="0"
-                max="300"
-                value={borderBottomRightRadius.radiusX}
-                id="bbr__x_radius"
-                changed={this.onRangeChange}
-                identifier="borderBottomRightRadius"
-                radiusDir="radiusX"
-              />
-              <Range
-                title="Y Radius"
-                min="0"
-                max="300"
-                value={borderBottomRightRadius.radiusY}
-                id="bbr__y_radius"
-                changed={this.onRangeChange}
-                identifier="borderBottomRightRadius"
-                radiusDir="radiusY"
-              />
-            </div>
-          </li>
+            for (let key in radii) {
+              parsedRadii.push({
+                direction: key,
+                value: radii[key]
+              });
+            }
 
-          <li>
-            <div className="collapsible-header">
-              <strong>Border Bottom-Left</strong>
-            </div>
-            <div className="collapsible-body">
-              <Range
-                title="X Radius"
-                min="0"
-                max="300"
-                value={borderBottomLeftRadius.radiusX}
-                id="bbl__x_radius"
-                changed={this.onRangeChange}
-                identifier="borderBottomLeftRadius"
-                radiusDir="radiusX"
-              />
-              <Range
-                title="Y Radius"
-                min="0"
-                max="300"
-                value={borderBottomLeftRadius.radiusY}
-                id="bbl__y_radius"
-                changed={this.onRangeChange}
-                identifier="borderBottomLeftRadius"
-                radiusDir="radiusY"
-              />
-            </div>
-          </li>
+            return (
+              <li key={element.id} className={index === 0 ? "active" : ""}>
+                <div className="collapsible-header">
+                  <strong>{elementConfig.label}</strong>
+                </div>
+
+                <div className="collapsible-body">
+                  {parsedRadii.map((radius, index) => (
+                    <Input
+                      key={`${element.id}__${radius.direction}`}
+                      htmlProperties={htmlProperties}
+                      value={radius.value}
+                      label={radius.direction}
+                      dataSets={dataSets}
+                      inputType={inputType}
+                      changed={event =>
+                        this.onInputChangeHandler(
+                          event,
+                          radius.direction,
+                          element.id
+                        )
+                      }
+                    />
+                  ))}
+                </div>
+              </li>
+            );
+          })}
         </ul>
       </div>
     );

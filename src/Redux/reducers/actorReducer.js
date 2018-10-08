@@ -135,7 +135,7 @@ const initialState = {
         name: "borderTopLeftRadius"
       },
       dataSets: {},
-      radii: [{ radiusX: 5 }, { radiusY: 2 }]
+      radii: { radiusX: 5, radiusY: 2 }
     },
 
     borderTopRightRadius: {
@@ -151,7 +151,7 @@ const initialState = {
         name: "borderTopRightRadius"
       },
       dataSets: {},
-      radii: [{ radiusX: 5 }, { radiusY: 4 }]
+      radii: { radiusX: 5, radiusY: 4 }
     },
 
     borderBottomLeftRadius: {
@@ -167,7 +167,7 @@ const initialState = {
         name: "borderBottomLeftRadius"
       },
       dataSets: {},
-      radii: [{ radiusX: 3 }, { radiusY: 7 }]
+      radii: { radiusX: 3, radiusY: 7 }
     },
 
     borderBottomRightRadius: {
@@ -183,7 +183,7 @@ const initialState = {
         name: "Border Bottom Right Radius"
       },
       dataSets: {},
-      radii: [{ radiusX: 6 }, { radiusY: 10 }]
+      radii: { radiusX: 6, radiusY: 10 }
     }
   },
 
