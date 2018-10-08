@@ -1,7 +1,7 @@
 import React from "react";
 
 export default props => {
-  const { title, values, changed, identifier } = props;
+  const { title, values, changed, identifier, htmlProperties } = props;
   return (
     <div>
       <label>{title}</label>
@@ -9,6 +9,7 @@ export default props => {
         onChange={changed}
         data-identifier={identifier}
         style={{ display: "block" }}
+        {...htmlProperties}
       >
         {values.map(el => (
           <option key={el.value} value={el.value}>
