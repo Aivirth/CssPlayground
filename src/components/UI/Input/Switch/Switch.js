@@ -12,6 +12,7 @@ export default props => {
           data-identifier={identifier}
           value={value}
           {...htmlProperties}
+          data-switch="isSwitch"
         />
         <span className="lever" />
         Inset

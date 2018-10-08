@@ -19,6 +19,19 @@ class BoxShadow extends PureComponent {
       ...updatedState[elementKey]
     };
 
+    console.log(e.target);
+
+    if (
+      e.target.type === "checkbox" &&
+      e.target.dataset.switch === "isSwitch"
+    ) {
+      if (e.target.checked) {
+        e.target.value = "inset";
+      } else {
+        e.target.value = "";
+      }
+    }
+
     updatedProperty.value = e.target.value;
     updatedState[elementKey] = updatedProperty;
 

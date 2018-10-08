@@ -253,7 +253,7 @@ const initialState = {
     },
 
     color: {
-      value: "#ffb900",
+      value: "#095609",
       inputType: "color",
       elementConfig: {
         label: "Color"
@@ -285,15 +285,14 @@ const initialState = {
       value: "",
       inputType: "switch",
       elementConfig: {
-        label: "Inset"
+        label: "Inset",
+        isSwitch: true
       },
       htmlProperties: {
         type: "checkbox",
         name: "inset"
       },
-      dataSets: {
-        isSwitch: true
-      }
+      dataSets: {}
     }
   }
 };
