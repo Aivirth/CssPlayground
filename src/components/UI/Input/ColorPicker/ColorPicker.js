@@ -1,15 +1,14 @@
 import React from "react";
 
 export default props => {
-  const { changed, id, identifier, value } = props;
+  const { changed, id, identifier, value, htmlProperties, label } = props;
   return (
     <div>
       <label htmlFor={identifier}>
-        Color: {value}
-        {"   "}
+        {label}: {value}
       </label>
       <input
-        type="color"
+        {...htmlProperties}
         id={id}
         name={id}
         onChange={changed}
