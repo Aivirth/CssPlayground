@@ -5,8 +5,7 @@ import { objectIsEmpty } from "../../helpers/helpers";
 
 class Spectator extends PureComponent {
   state = {
-    actorStyles: {},
-    acceptedProperties: {}
+    actorStyles: {}
   };
 
   formatComputedStyle = domStyles => {
@@ -37,6 +36,27 @@ class Spectator extends PureComponent {
     });
   }
 
+  getAllProperties = e => {
+    const childNodes = [...this.propertiesList.childNodes].filter(
+      node => node.className === "collection-item"
+    );
+
+    console.log(childNodes);
+
+    const childValues = childNodes.map(node => node.innerText);
+
+    console.log(childValues);
+
+    const formattedValues = childValues.join("");
+
+    console.log(formattedValues);
+
+    this.clipboard.value = formattedValues;
+
+    this.clipboard.select();
+    document.execCommand("copy");
+  };
+
   componentDidUpdate(prevProps) {
     if (this.props !== prevProps) {
       this.setState({
@@ -53,7 +73,6 @@ class Spectator extends PureComponent {
     let cssProperties = [];
 
     if (!objectIsEmpty(currentActorStyles)) {
-      console.log(currentActorStyles);
       for (const key in currentActorStyles) {
         cssProperties.push({
           name: key,
@@ -63,25 +82,39 @@ class Spectator extends PureComponent {
     }
 
     return (
-      <ul className="collection with-header">
-        <li className="collection-header">
-          <h4>Spectator Data</h4>
-        </li>
-        {cssProperties.map((property, index) => (
-          <li className="collection-item" key={`css_property_${index}`}>
-            <strong>{property.name}</strong> : {property.value}; <br />
+      <React.Fragment>
+        <ul
+          className="collection with-header"
+          ref={propertiesList => {
+            this.propertiesList = propertiesList;
+          }}
+          id="Spectator"
+        >
+          <li className="collection-header">
+            <h4>Spectator Data</h4>
           </li>
-        ))}
-      </ul>
+          {cssProperties.map((property, index) => (
+            <li className="collection-item" key={`css_property_${index}`}>
+              <strong>{property.name}</strong> : {property.value}; <br />
+            </li>
+          ))}
+        </ul>
+        <button onClick={this.getAllProperties}>Test</button>
+        <textarea
+          ref={clipboard => {
+            this.clipboard = clipboard;
+          }}
+          name="spectator"
+          id="spectatorClipboard"
+          cols="30"
+          rows="70"
+        />
+      </React.Fragment>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  baseStyle: state.actor.baseStyle,
-  borders: state.actor.borders,
-  boxShadow: state.actor.boxShadow,
-  borderRadius: state.actor.borderRadius,
   actor: state.actor
 });
 
