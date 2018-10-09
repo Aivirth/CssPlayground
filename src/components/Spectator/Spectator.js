@@ -30,7 +30,7 @@ class Spectator extends PureComponent {
 
     this.setState({
       actorStyles: this.formatComputedStyle(
-        window.getComputedStyle(document.getElementById("Actor"))
+        document.getElementById("Actor").style
       )
     });
   }
@@ -39,7 +39,7 @@ class Spectator extends PureComponent {
     if (this.props !== prevProps) {
       this.setState({
         actorStyles: this.formatComputedStyle(
-          window.getComputedStyle(document.getElementById("Actor"))
+          document.getElementById("Actor").style
         )
       });
     }
@@ -47,6 +47,8 @@ class Spectator extends PureComponent {
 
   render() {
     const currentActorStyles = { ...this.state.actorStyles };
+
+    console.log(currentActorStyles);
 
     let cssProperties = [];
 
