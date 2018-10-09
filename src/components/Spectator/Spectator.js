@@ -104,9 +104,10 @@ class Spectator extends PureComponent {
           ref={clipboard => {
             this.clipboard = clipboard;
           }}
+          style={{ width: "0", height: "0", border: "none", padding: "0" }}
           name="spectator"
           id="spectatorClipboard"
-          cols="30"
+          cols="70"
           rows="70"
         />
       </React.Fragment>
