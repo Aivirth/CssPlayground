@@ -4,7 +4,18 @@ import { getStyles } from "../../Redux/actions/actorActions";
 
 class Spectator extends PureComponent {
   state = {
-    actorStyles: {}
+    actorStyles: {},
+    acceptedProperties: {}
+  };
+
+  objectIsEmpty = obj => {
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        return false;
+      }
+    }
+
+    return true;
   };
 
   formatComputedStyle = domStyles => {
@@ -48,15 +59,16 @@ class Spectator extends PureComponent {
   render() {
     const currentActorStyles = { ...this.state.actorStyles };
 
-    console.log(currentActorStyles);
-
     let cssProperties = [];
 
-    for (const key in currentActorStyles) {
-      cssProperties.push({
-        name: key,
-        value: currentActorStyles[key]
-      });
+    if (!this.objectIsEmpty(currentActorStyles)) {
+      console.log(currentActorStyles);
+      for (const key in currentActorStyles) {
+        cssProperties.push({
+          name: key,
+          value: currentActorStyles[key]
+        });
+      }
     }
 
     return (
@@ -78,7 +90,8 @@ const mapStateToProps = state => ({
   baseStyle: state.actor.baseStyle,
   borders: state.actor.borders,
   boxShadow: state.actor.boxShadow,
-  borderRadius: state.actor.borderRadius
+  borderRadius: state.actor.borderRadius,
+  actor: state.actor
 });
 
 export default connect(
