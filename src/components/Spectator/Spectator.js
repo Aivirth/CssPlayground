@@ -69,7 +69,7 @@ class Spectator extends PureComponent {
 
 const mapStateToProps = state => ({
   baseStyle: state.actor.baseStyle,
-  borderStyle: state.actor.borderStyle,
+  borders: state.actor.borderStyle,
   boxShadow: state.actor.boxShadow,
   borderRadius: state.actor.borderRadius
 });
