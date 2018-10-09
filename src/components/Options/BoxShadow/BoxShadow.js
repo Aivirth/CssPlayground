@@ -19,8 +19,6 @@ class BoxShadow extends PureComponent {
       ...updatedState[elementKey]
     };
 
-    console.log(e.target);
-
     if (
       e.target.type === "checkbox" &&
       e.target.dataset.switch === "isSwitch"

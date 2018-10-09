@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getStyles } from "../../Redux/actions/actorActions";
 
+import { hexToRgb } from "../../helpers/helpers";
+
 class Actor extends Component {
   state = {
     styles: {}
@@ -14,7 +16,7 @@ class Actor extends Component {
     const borderRadiusRaw = this.props.borderRadius;
     const boxShadow = this.props.boxShadow;
 
-    const hexColor = this.hexToRgb(boxShadow.color.value);
+    const hexColor = hexToRgb(boxShadow.color.value);
     hexColor.push(boxShadow.opacity.value);
     const computedBoxShadowColor = hexColor.join(",");
 
@@ -48,22 +50,6 @@ class Actor extends Component {
   componentDidMount() {
     this.props.getStyles();
   }
-
-  hexToRgb = hex => {
-    let r = null;
-    // long version
-    r = hex.match(/^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i);
-    if (r) {
-      return r.slice(1, 4).map(x => parseInt(x, 16));
-    }
-    // short version
-    r = hex.match(/^#([0-9a-f])([0-9a-f])([0-9a-f])$/i);
-    if (r) {
-      return r.slice(1, 4).map(x => 0x11 * parseInt(x, 16));
-    }
-
-    return r;
-  };
 
   formatBorderRadius = borderRadiusRaw => {
     const formattedBorderRadius = {};

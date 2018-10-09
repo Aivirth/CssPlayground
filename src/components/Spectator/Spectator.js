@@ -1,21 +1,12 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { getStyles } from "../../Redux/actions/actorActions";
+import { objectIsEmpty } from "../../helpers/helpers";
 
 class Spectator extends PureComponent {
   state = {
     actorStyles: {},
     acceptedProperties: {}
-  };
-
-  objectIsEmpty = obj => {
-    for (const key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        return false;
-      }
-    }
-
-    return true;
   };
 
   formatComputedStyle = domStyles => {
@@ -61,7 +52,7 @@ class Spectator extends PureComponent {
 
     let cssProperties = [];
 
-    if (!this.objectIsEmpty(currentActorStyles)) {
+    if (!objectIsEmpty(currentActorStyles)) {
       console.log(currentActorStyles);
       for (const key in currentActorStyles) {
         cssProperties.push({
