@@ -18,7 +18,8 @@ class Spectator extends PureComponent {
       "border-top-left-radius": styles.borderTopLeftRadius,
       "border-top-right-radius": styles.borderTopRightRadius,
       "border-bottom-left-radius": styles.borderBottomLeftRadius,
-      "border-bottom-right-radius": styles.borderBottomRightRadius
+      "border-bottom-right-radius": styles.borderBottomRightRadius,
+      border: styles.border
     };
 
     return computedStyles;
@@ -47,19 +48,23 @@ class Spectator extends PureComponent {
   render() {
     const currentActorStyles = { ...this.state.actorStyles };
 
-    let output = Object.keys(currentActorStyles).map(key => [
-      key,
-      currentActorStyles[key]
-    ]);
+    let cssProperties = [];
+
+    for (const key in currentActorStyles) {
+      cssProperties.push({
+        name: key,
+        value: currentActorStyles[key]
+      });
+    }
 
     return (
       <ul className="collection with-header">
         <li className="collection-header">
           <h4>Spectator Data</h4>
         </li>
-        {output.map((el, index) => (
+        {cssProperties.map((property, index) => (
           <li className="collection-item" key={`css_property_${index}`}>
-            <strong>{el[0]}</strong> : {el[1]}; <br />
+            <strong>{property.name}</strong> : {property.value}; <br />
           </li>
         ))}
       </ul>
@@ -69,7 +74,7 @@ class Spectator extends PureComponent {
 
 const mapStateToProps = state => ({
   baseStyle: state.actor.baseStyle,
-  borders: state.actor.borderStyle,
+  borders: state.actor.borders,
   boxShadow: state.actor.boxShadow,
   borderRadius: state.actor.borderRadius
 });
