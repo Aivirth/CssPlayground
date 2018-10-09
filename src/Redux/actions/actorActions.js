@@ -3,8 +3,7 @@ import {
   UPDT_BOXSHADOW,
   UPDT_BORDERRADIUS,
   UPDT_BORDERS,
-  UPDT_BASE,
-  UPDT_STYLECSSTEXT
+  UPDT_BASE
 } from "./types";
 
 export const getStyles = () => {
@@ -38,12 +37,5 @@ export const updtBase = newBase => {
   return {
     type: UPDT_BASE,
     payload: newBase
-  };
-};
-
-export const updtStyleCssText = newStyleCssText => {
-  return {
-    type: UPDT_STYLECSSTEXT,
-    payload: newStyleCssText
   };
 };
