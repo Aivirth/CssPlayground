@@ -49,6 +49,8 @@ class Spectator extends PureComponent {
     this.clipboard.value = formattedValues;
 
     this.clipboard.select();
+
+    document.execCommand("copy");
   };
 
   componentDidUpdate(prevProps) {
