@@ -37,24 +37,18 @@ class Spectator extends PureComponent {
   }
 
   getAllProperties = e => {
+    e.preventDefault();
     const childNodes = [...this.propertiesList.childNodes].filter(
       node => node.className === "collection-item"
     );
 
-    console.log(childNodes);
-
     const childValues = childNodes.map(node => node.innerText);
 
-    console.log(childValues);
-
     const formattedValues = childValues.join("");
-
-    console.log(formattedValues);
 
     this.clipboard.value = formattedValues;
 
     this.clipboard.select();
-    document.execCommand("copy");
   };
 
   componentDidUpdate(prevProps) {
@@ -99,12 +93,27 @@ class Spectator extends PureComponent {
             </li>
           ))}
         </ul>
-        <button onClick={this.getAllProperties}>Test</button>
+
+        <a
+          onClick={this.getAllProperties}
+          href="#/"
+          className="waves-effect waves-light btn green accent-4"
+          style={{ display: "block" }}
+        >
+          Copy To Clipboard
+          <i className="material-icons right">content_copy</i>
+        </a>
+
         <textarea
           ref={clipboard => {
             this.clipboard = clipboard;
           }}
-          style={{ width: "0", height: "0", border: "none", padding: "0" }}
+          style={{
+            width: "0",
+            height: "0",
+            border: "1px solid transparent",
+            padding: "0"
+          }}
           name="spectator"
           id="spectatorClipboard"
           cols="70"
