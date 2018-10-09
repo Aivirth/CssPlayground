@@ -43,14 +43,11 @@ export default () => {
           </li>
         </ul>
 
-        <ul className="right hide-on-med-and-down">
-          <li>
-            <Link to="/about">About</Link>
-          </li>
+        {/* <ul className="right hide-on-med-and-down">
           <li className="active">
             <a href="/">Github</a>
           </li>
-        </ul>
+        </ul> */}
       </div>
     </nav>
   );

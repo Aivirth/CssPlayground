@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink as Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default () => {
@@ -16,13 +17,13 @@ export default () => {
             <h5 className="white-text">Links</h5>
             <ul>
               <li>
-                <a className="grey-text text-lighten-3" href="#!">
-                  Link 1
-                </a>
+                <Link to="/about" className="grey-text text-lighten-3">
+                  About
+                </Link>
               </li>
               <li>
                 <a className="grey-text text-lighten-3" href="#!">
-                  Link 2
+                  Instructions
                 </a>
               </li>
               <li>
