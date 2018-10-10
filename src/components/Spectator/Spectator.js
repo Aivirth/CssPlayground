@@ -79,48 +79,58 @@ class Spectator extends PureComponent {
 
     return (
       <React.Fragment>
-        <ul
-          className="collection with-header"
-          ref={propertiesList => {
-            this.propertiesList = propertiesList;
-          }}
-          id="Spectator"
-        >
-          <li className="collection-header">
-            <h4>Spectator Data</h4>
-          </li>
-          {cssProperties.map((property, index) => (
-            <li className="collection-item" key={`css_property_${index}`}>
-              <strong>{property.name}</strong> : {property.value}; <br />
-            </li>
-          ))}
-        </ul>
+        <div className="card" style={{ margin: "0" }}>
+          <div className="card-content">
+            <span className="card-title activator grey-text text-darken-4">
+              Styles
+              <i className="material-icons right">more_vert</i>
+            </span>
 
-        <a
-          onClick={this.getAllProperties}
-          href="#/"
-          className="waves-effect waves-light btn green accent-4"
-          style={{ display: "block" }}
-        >
-          Copy To Clipboard
-          <i className="material-icons right">content_copy</i>
-        </a>
-
-        <textarea
-          ref={clipboard => {
-            this.clipboard = clipboard;
-          }}
-          style={{
-            width: "0",
-            height: "0",
-            border: "1px solid transparent",
-            padding: "0"
-          }}
-          name="spectator"
-          id="spectatorClipboard"
-          cols="70"
-          rows="70"
-        />
+            <ul
+              className="collection with-header"
+              ref={propertiesList => {
+                this.propertiesList = propertiesList;
+              }}
+              id="Spectator"
+              style={{ width: "100%" }}
+            >
+              {cssProperties.map((property, index) => (
+                <li className="collection-item" key={`css_property_${index}`}>
+                  <strong>{property.name}</strong> : {property.value}; <br />
+                </li>
+              ))}
+            </ul>
+            <a
+              onClick={this.getAllProperties}
+              href="#/"
+              className="waves-effect waves-light btn green accent-4 activator"
+              style={{ display: "block" }}
+            >
+              Copy To Clipboard
+              <i className="material-icons right">content_copy</i>
+            </a>
+          </div>
+          <div className="card-reveal">
+            <span className="card-title grey-text text-darken-4">
+              Styles copied
+              <i className="material-icons right">close</i>
+            </span>
+            <p>
+              <textarea
+                ref={clipboard => {
+                  this.clipboard = clipboard;
+                }}
+                style={{
+                  height: "20rem"
+                }}
+                name="spectator"
+                id="spectatorClipboard"
+                // cols="70"
+                rows="70"
+              />
+            </p>
+          </div>
+        </div>
       </React.Fragment>
     );
   }
